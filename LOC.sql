@@ -54,7 +54,7 @@ INSERT OR REPLACE INTO LocalizedText
 [NEWLINE][ICON_Bullet]If a Battering Ram and a Siege Tower are adjacent to the city with Ancient Walls, Melee class units (Warriors, Swordsmen) and Anti-Cavalry class units (Spearmen, Pikemen) ignore the "shield" effect of the wall and do their full normal damage to the city''s health. Then they do a wall-attack that ignores the 85% reduction.
 
 
-
+Damage VS a wall cannot be more than 200 in a single attack
 
 
 

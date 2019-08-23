@@ -2,7 +2,7 @@
 <Project ToolsVersion="12.0" DefaultTargets="Default" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Default</Configuration>
-    <Name>DB [ICON_GreatWriter]Better Rulebook[ICON_GreatWriter]</Name>
+    <Name>DB [ICON_Reports]Better Rulebook[ICON_Reports]</Name>
     <Guid>238f9daf-7d74-429b-84b9-564ca3e79ac7</Guid>
     <ProjectGuid>d1e86b6a-fe68-4334-a726-83d29a56d3b7</ProjectGuid>
     <ModVersion>1</ModVersion>
