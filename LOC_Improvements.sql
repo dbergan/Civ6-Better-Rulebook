@@ -1,0 +1,23 @@
+-- ('', '', 'en_US'),
+
+INSERT OR REPLACE INTO LocalizedText 
+(Tag, Text, Language) VALUES
+
+-- Combat Previews
+('LOC_COMBAT_PREVIEW_DEFENSIVE_IMPROVEMENT_BONUS_DESC', '+{1_Value} Fort{LOC_BR_LABEL}', 'en_US'),
+
+('LOC_PEDIA_IMPROVEMENTS_PAGEGROUP_IMPROVEMENTS_NAME', 'Improvements{LOC_BR_LABEL}', 'en_US'),
+-- Military improvements that can't be built on resources
+('LOC_UP_FIXES_RESOURCE_CONFLICT', '[NEWLINE][NEWLINE](The restriction of not building on resources is fixed in DB''s Unofficial Patch.){LOC_BR_LABEL}', 'en_US'),
+('LOC_IMPROVEMENT_AIRSTRIP_DESCRIPTION', 'Airstrips are air bases that can hold 3 air units. Military Engineers can construct Airstrips in friendly or neutral territory, but only on a flat featureless land tile that has no resources (e.g. you can''t build one on [ICON_RESOURCE_WHEAT]wheat). -1 appeal to adjacent tiles.[NEWLINE][NEWLINE]Airstrips built in neutral territory can be captured when the enemy ends their turn on its tile, which triggers a Forced Rebase to all aircraft on the Airstrip. The following turn, the captor can base aircraft on the captured Airstrip.{LOC_UP_FIXES_RESOURCE_CONFLICT}', 'en_US'),
+('LOC_IMPROVEMENT_MISSILE_SILO_DESCRIPTION', 'Missile Silos are a launch site for Nuclear and Thermonuclear Devices. Nuclear Devices have a range of 12 tiles while Thermonuclear Devices have a range of 15. Military Engineers can construct Missile Silos in friendly territory, but only on a flat featureless land tile that has no resources (e.g. you can''t build one on [ICON_RESOURCE_WHEAT]wheat).{LOC_UP_FIXES_RESOURCE_CONFLICT}', 'en_US'),
+('LOC_IMPROVEMENT_FORT_DESCRIPTION', 'Forts give an occupying unit +4 [ICON_Strength]Combat Strength on defense, and 2 turns of fortification (an additional +6 [ICON_Strength]Combat Strength). Military Engineers can construct Forts in friendly or neutral territory, but only on a featureless land tile that has no resources (e.g. you can''t build one on [ICON_RESOURCE_WHEAT]wheat).{LOC_UP_FIXES_RESOURCE_CONFLICT}', 'en_US'),
+('LOC_IMPROVEMENT_ROMAN_FORT_DESCRIPTION', 'Roman Forts give an occupying unit +4 [ICON_Strength]Combat Strength on defense, and 2 turns of fortification (an additional +6 [ICON_Strength]Combat Strength). Roman Legions can construct Roman Forts in friendly or neutral territory, but only on a featureless land tile that has no resources (e.g. you can''t build one on [ICON_RESOURCE_WHEAT]wheat).{LOC_UP_FIXES_RESOURCE_CONFLICT}', 'en_US'),
+('LOC_IMPROVEMENT_MAORI_PA_DESCRIPTION', 'Pas give an occupying unit +4 [ICON_Strength]Combat Strength on defense, and 2 turns of fortification (an additional +6 [ICON_Strength]Combat Strength). A Maori unit occupying a Pa heals even if they just moved or attacked. Toas can construct Pas in friendly or neutral territory, but only on a featureless land tile that has no resources (e.g. you can''t build one on [ICON_RESOURCE_WHEAT]wheat).{LOC_UP_FIXES_RESOURCE_CONFLICT}', 'en_US'),
+('LOC_IMPROVEMENT_ALCAZAR_DESCRIPTION', 'Alcazars give an occupying unit +4 [ICON_Strength]Combat Strength on defense, and 2 turns of fortification (an additional +6 [ICON_Strength]Combat Strength). Provides +2 [ICON_Culture] Culture. Builders can construct Alcazars in friendly or neutral territory, but only on a featureless land tilethat has no resources (e.g. you can''t build one on [ICON_RESOURCE_WHEAT]wheat). Cannot be built next to another Alcazar.{LOC_UP_FIXES_RESOURCE_CONFLICT}', 'en_US'),
+('LOC_IMPROVEMENT_ALCAZAR_EXPANSION2_DESCRIPTION', 'Alcazars give an occupying unit +4 [ICON_Strength]Combat Strength on defense, and 2 turns of fortification (an additional +6 [ICON_Strength]Combat Strength). Provides +2 [ICON_Culture] Culture, [ICON_SCIENCE] Science equal to 50% of the tile''s Appeal, and [ICON_TOURISM] Tourism after researching Flight. Builders can construct Alcazars in friendly or neutral territory, but only on a featureless land tile that has no resources (e.g. you can''t build one on [ICON_RESOURCE_WHEAT]wheat). Cannot be built next to another Alcazar.{LOC_UP_FIXES_RESOURCE_CONFLICT}', 'en_US'),
+
+-- Fishery can't be built on Reefs
+('LOC_IMPROVEMENT_FISHERY_DESCRIPTION', 'A [ICON_Governor] Governor unique improvement that can be built in a city when a Governor has the Aquaculture promotion. Yields 1 [ICON_Food] Food, +1 additional [ICON_Food] Food if adjacent to a sea resource. Must be built on a coastal plot. Cannot be built on a reef.{LOC_BR_LABEL}', 'en_US')
+
+;
