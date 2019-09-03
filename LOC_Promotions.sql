@@ -9,7 +9,7 @@ INSERT OR REPLACE INTO LocalizedText
 -- Recon
 
 -- Melee
-('LOC_PROMOTION_BATTLECRY_DESCRIPTION', '+7 [ICON_Strength]Combat Strength vs. Melee, Anti-Cavalry and Ranged units.{LOC_BR_LABEL}', 'en_US'),
+('LOC_PROMOTION_BATTLECRY_DESCRIPTION', '+7 [ICON_Strength] Combat Strength vs. Melee, Anti-Cavalry and Ranged units.{LOC_BR_LABEL}', 'en_US'),
 ('LOC_PROMOTION_TORTOISE_DESCRIPTION', '+10 [ICON_Strength]Combat Strength when defending vs. ranged and air attacks (but not siege units or bombers).{LOC_BR_LABEL}', 'en_US'),
 ('LOC_PROMOTION_ZWEIHANDER_DESCRIPTION', '+7 [ICON_Strength]Combat Strength vs. Anti-Cavalry units.{LOC_BR_LABEL}', 'en_US'),
 ('LOC_PROMOTION_URBAN_WARFARE_DESCRIPTION', '+10 [ICON_Strength]Combat Strength when fighting in a district or attacking a city or encampment.{LOC_BR_LABEL}', 'en_US'),

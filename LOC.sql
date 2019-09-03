@@ -4,7 +4,7 @@ INSERT OR REPLACE INTO LocalizedText
 (Tag, Text, Language) VALUES
 ('LOC_BR_LABEL', ' [COLOR:SuzerainDark][BR][ENDCOLOR]', 'en_US'),
 ('LOC_BR_HEADER', '[ICON_Reports][COLOR:SuzerainDark]BETTER RULEBOOK[ENDCOLOR][ICON_Reports][NEWLINE][NEWLINE]', 'en_US'),
-('LOC_OT_HEADER', '[NEWLINE][NEWLINE][COLOR_Red]ORIGINAL TEXT[ENDCOLOR][NEWLINE][NEWLINE]', 'en_US'),
+('LOC_OT_HEADER', '[COLOR_Red]ORIGINAL TEXT[ENDCOLOR][NEWLINE][NEWLINE]', 'en_US'),
 
 /***** Combat Previews  *****/
 ('LOC_COMBAT_PREVIEW_ESPIONAGE_BONUS', '+{1_Value} Higher Diplomatic Visibility{LOC_BR_LABEL}', 'en_US'),
