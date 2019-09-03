@@ -7,7 +7,7 @@ INSERT OR REPLACE INTO LocalizedText
 ('LOC_PEDIA_GOVERNMENTS_PAGEGROUP_GOVERNMENTS_NAME', 'Governments{LOC_BR_LABEL}', 'en_US'),
 ('LOC_ABILITY_FASCISM_ATTACK_BUFF_DESCRIPTION', '+5 [ICON_Strength]Combat Strength, [ICON_Ranged] Ranged Strength, or [ICON_Bombard] Bombard Strength when attacking with the Fascism government.{LOC_BR_LABEL}', 'en_US'),
 ('LOC_GOVT_INHERENT_BONUS_FASCISM', '+5 [ICON_Strength]Combat Strength, [ICON_Ranged] Ranged Strength, or [ICON_Bombard] Bombard Strength when attacking.{LOC_BR_LABEL}', 'en_US'),
-('LOC_GOVT_INHERENT_BONUS_FASCISM_XP1', '+5 [ICON_Strength]Combat Strength, [ICON_Ranged] Ranged Strength, or [ICON_Bombard] Bombard Strength when attacking.  War Weariness reduced by 15%.{LOC_BR_LABEL}', 'en_US'),
+('LOC_GOVT_INHERENT_BONUS_FASCISM_XP1', '+5 [ICON_Strength]Combat Strength, [ICON_Ranged] Ranged Strength, or [ICON_Bombard] Bombard Strength when attacking.  War Weariness reduced by 20%.{LOC_BR_LABEL}', 'en_US'),
 ('LOC_ABILITY_FASCISM_ATTACK_BUFF_MODIFIER_DESCRIPTION', '+5 Fascism {LOC_GOVERNMENT_DESCRIPTOR_PREVIEW_TEXT}{LOC_BR_LABEL}', 'en_US'),
 
 -- Finest Hour
