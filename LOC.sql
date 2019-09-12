@@ -9,6 +9,7 @@ INSERT OR REPLACE INTO LocalizedText
 /***** Combat Previews  *****/
 ('LOC_COMBAT_PREVIEW_ESPIONAGE_BONUS', '+{1_Value} Higher Diplomatic Visibility{LOC_BR_LABEL}', 'en_US'),
 ('LOC_COMBAT_PREVIEW_FORTIFIED_DEFENSE_DESC', '+{1_Value} Fortified Unit{LOC_BR_LABEL}', 'en_US'),
+('LOC_COMBAT_DIFFICULTY_SCALING', '+{1_Value} {LOC_GAME_HANDICAP}{LOC_BR_LABEL}', 'en_US'),
 
 
 /***** CITY/ENCAMPMENT BANNERS AND FLOATERS *****/

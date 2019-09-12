@@ -4,9 +4,10 @@ INSERT OR REPLACE INTO LocalizedText
 (Tag, Text, Language) VALUES
 
 ('LOC_FORMATION_CLASS_SUPPORT_NAME', 'Support{LOC_BR_LABEL}', 'en_US'),
--- Drones don't give strength bonuses, subject to movement costs
-('LOC_UNIT_DRONE_DESCRIPTION', 'Atomic era support unit. Adds +1 [ICON_Range] Range to adjacent siege-class units. Subject to embarking and terrain movement costs.[NEWLINE][NEWLINE](The intended strength bonus for Modern era and later siege units does not work, but this is fixed in DB''s Unofficial Patch. The patch also enables drones to ignore terrain movement costs.){LOC_BR_LABEL}', 'en_US'),
 
+-- Observation Balloons, Drones subject to movement costs
+('LOC_UNIT_DRONE_DESCRIPTION', 'Atomic era support unit. Adds +1 [ICON_Range] Range to Siege units within 1 tile. Adds +5 [ICON_Bombard] Bombard Strength to Modern era or later Siege units within 1 tile. Subject to embarking and terrain movement costs.[NEWLINE][NEWLINE](DB''s Unofficial Patch enables drones to ignore terrain movement costs.){LOC_BR_LABEL}', 'en_US'),
+('LOC_UNIT_OBSERVATION_BALLOON_DESCRIPTION', 'Modern era support unit. Adds +1 [ICON_Range] Range to Siege units within 1 tile. Subject to embarking and terrain movement costs.[NEWLINE][NEWLINE](DB''s Unofficial Patch enables balloons to ignore terrain movement costs.){LOC_BR_LABEL}', 'en_US'),
 
 ('LOC_FORMATION_CLASS_LAND_COMBAT_NAME', 'Land Combat{LOC_BR_LABEL}', 'en_US'),
 -- Spec Ops

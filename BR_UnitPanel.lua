@@ -18,10 +18,6 @@ function GetCombatModifierList(combatantHash:number)
 	local interceptorModifierText = combatantResults[CombatResultParameters.PREVIEW_TEXT_INTERCEPTOR];
 	local antiAirModifierText = combatantResults[CombatResultParameters.PREVIEW_TEXT_ANTI_AIR];
 	local healthModifierText = combatantResults[CombatResultParameters.PREVIEW_TEXT_HEALTH];
-
-print("********** BR **********") ;
-print(healthModifierText) ;
-print("********** BR **********") ;
 	local terrainModifierText = combatantResults[CombatResultParameters.PREVIEW_TEXT_TERRAIN];
 	local opponentModifierText = combatantResults[CombatResultParameters.PREVIEW_TEXT_OPPONENT];
 	local modifierModifierText = combatantResults[CombatResultParameters.PREVIEW_TEXT_MODIFIER];
@@ -49,11 +45,6 @@ print("********** BR **********") ;
 		for i, item in ipairs(healthModifierText) do
 			modifierList, modifierListSize = AddModifierToList(modifierList, modifierListSize, Locale.Lookup(item), "ICON_DAMAGE");
 		end
-
--- ********** BR ************** -- 
-	elseif (1 == 2) then
-
--- ********** BR ************** -- 
 	end
 	if (terrainModifierText ~= nil) then
 		for i, item in ipairs(terrainModifierText) do
