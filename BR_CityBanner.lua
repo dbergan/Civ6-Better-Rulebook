@@ -25,7 +25,7 @@ function CityBanner:UpdateStats()
 				self:UpdatePopulation(false, pCity, pCityGrowth);
 				self:UpdateGovernor(pCity);
 
-				-- Espionage View should show a cities production if they have the proper diplo visibility
+				-- Espionage View should show a city's production if they have the proper diplo visibility
 				if HasEspionageView(iCityOwner, pCity:GetID()) then
 					self:UpdateProduction(pCity);
 				elseif self.m_StatProductionIM ~= nil then
