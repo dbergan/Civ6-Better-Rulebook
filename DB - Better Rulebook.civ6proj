@@ -6,8 +6,8 @@
     <Guid>238f9daf-7d74-429b-84b9-564ca3e79ac7</Guid>
     <ProjectGuid>d1e86b6a-fe68-4334-a726-83d29a56d3b7</ProjectGuid>
     <ModVersion>1</ModVersion>
-    <Teaser>Updates promotion descriptions, civilopedia, etc.</Teaser>
-    <Description>Updates promotion descriptions, civilopedia, etc. to be more precise (e.g. a better explanation of when the Strafe promotion applies). Changed entries are marked with "[BR]"</Description>
+    <Teaser>How Civ6 actually plays, warts and all</Teaser>
+    <Description>Did you know that the Arrow Storm promotion gives you +[ICON_Strength] on both attack and defense (even though Volley only gives +[ICON_Strength] on attack)?[NEWLINE][NEWLINE]Did you know that a Battleship Armada has the same Anti-Air value as a solo Battleship?[NEWLINE][NEWLINE]Did you know that Air Fighter units can use their Priority Attack command to deal 65 damage to Mobile SAMs and take no return damage (even though the combat preview graphic shows that you would take damage)?[NEWLINE][NEWLINE]Did you know that if you train a brand new tank army directly (with a Military Academy) that it won't increase your City Base Defense, but if you upgrade an existing heavy cavalry Army to a Tank Army you'll not only get the Tank's value for your City Base Defense, but also the +17 [ICON_Strength] from being an Army, for exceptionally high City Defense?[NEWLINE][NEWLINE]This mod updates the civilopedia, and descriptions on policies, promotions, unit abilities, etc. to accurately state how the involved game mechanics work with all their glorious quirks. It also incorporates research done on, say, zones of control, embarking, air units, and the city combat system. Changed entries are marked with "[BR]".[NEWLINE][NEWLINE]If you have a suggestion for this mod, please show me here:[NEWLINE]https://github.com/dbergan/Civ6-Better-Rulebook[NEWLINE][NEWLINE]I also highly recommend the companion mod that actually fixes some of the more extreme "quirks":[NEWLINE]Unofficial Patch</Description>
     <Authors>DB</Authors>
     <SpecialThanks>
     </SpecialThanks>
