@@ -51,6 +51,12 @@ INSERT OR REPLACE INTO LocalizedText
 ('LOC_PEDIA_CONCEPTS_PAGE_COMBAT_12_CHAPTER_CONTENT_PARA_3', '', 'en_US'),
 
 
+-- Combat: Healing
+('LOC_PEDIA_CONCEPTS_PAGE_COMBAT_14_CHAPTER_CONTENT_TITLE', 'Healing{LOC_BR_LABEL}', 'en_US'),
+('LOC_PEDIA_CONCEPTS_PAGE_COMBAT_14_CHAPTER_CONTENT_PARA_1', '{LOC_BR_HEADER}', 'en_US'),
+('LOC_PEDIA_CONCEPTS_PAGE_COMBAT_14_CHAPTER_CONTENT_PARA_2', '{LOC_OT_HEADER}None', 'en_US')
+
+
 /*****************
  each unit description for anything with an AA value should include if it can attack deployed fighters and/or Arkansas planes on airstrips, aerodromes, carriers?
  ************/
