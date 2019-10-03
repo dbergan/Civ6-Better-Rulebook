@@ -3,10 +3,8 @@
 INSERT OR REPLACE INTO LocalizedText 
 (Tag, Text, Language) VALUES
 
--- Combat Previews
-('LOC_COMBAT_PREVIEW_DEFENSIVE_IMPROVEMENT_BONUS_DESC', '+{1_Value} Fort{LOC_BR_LABEL}', 'en_US'),
-
 ('LOC_PEDIA_IMPROVEMENTS_PAGEGROUP_IMPROVEMENTS_NAME', 'Improvements{LOC_BR_LABEL}', 'en_US'),
+
 -- Military improvements that can't be built on resources
 ('LOC_UP_FIXES_RESOURCE_CONFLICT', '[NEWLINE][NEWLINE](The restriction of not building on resources is fixed in DB''s Unofficial Patch.){LOC_BR_LABEL}', 'en_US'),
 ('LOC_IMPROVEMENT_AIRSTRIP_DESCRIPTION', 'Airstrips are air bases that can hold 3 air units. Military Engineers can construct Airstrips in friendly or neutral territory, but only on a flat featureless land tile that has no resources (e.g. you can''t build one on [ICON_RESOURCE_WHEAT]wheat). -1 appeal to adjacent tiles.[NEWLINE][NEWLINE]Airstrips built in neutral territory can be captured when the enemy ends their turn on its tile, which triggers a Forced Rebase to all aircraft on the Airstrip. The following turn, the captor can base aircraft on the captured Airstrip.{LOC_UP_FIXES_RESOURCE_CONFLICT}', 'en_US'),

@@ -17,7 +17,7 @@
     <SupportsHotSeat>true</SupportsHotSeat>
     <AssemblyName>DB - Better Rulebook</AssemblyName>
     <RootNamespace>DB - Better Rulebook</RootNamespace>
-    <InGameActionData><![CDATA[<InGameActions><UpdateText id="LOC"><Properties><LoadOrder>101</LoadOrder></Properties><File priority="1">LOC.sql</File><File priority="2">LOC_Civilopedia.sql</File><File priority="3">LOC_Districts.sql</File><File priority="4">LOC_Governments_Policies.sql</File><File priority="5">LOC_Improvements.sql</File><File priority="6">LOC_Promotions.sql</File><File priority="7">LOC_Units.sql</File><File priority="8">LOC_Wonders.sql</File><File>LOC_CombatPreviews.sql</File></UpdateText><UpdateDatabase id="GameData"><Properties><LoadOrder>101</LoadOrder></Properties><File>ModifierStrings.sql</File></UpdateDatabase><ReplaceUIScript id="CityBanner"><Properties><LoadOrder>101</LoadOrder><LuaContext>CityBannerManager</LuaContext><LuaReplace>BR_CityBanner.lua</LuaReplace></Properties></ReplaceUIScript></InGameActions>]]></InGameActionData>
+    <InGameActionData><![CDATA[<InGameActions><UpdateText id="LOC"><Properties><LoadOrder>101</LoadOrder></Properties><File priority="1">LOC.sql</File><File priority="2">LOC_Civilopedia.sql</File><File priority="3">LOC_Districts.sql</File><File priority="4">LOC_Governments_Policies.sql</File><File priority="5">LOC_Improvements.sql</File><File priority="6">LOC_Promotions.sql</File><File priority="7">LOC_Units.sql</File><File priority="8">LOC_Wonders.sql</File><File>LOC_CombatPreviews.sql</File></UpdateText><UpdateDatabase id="GameData"><Properties><LoadOrder>101</LoadOrder></Properties><File>ModifierStrings.sql</File><File>CivilopediaPages.sql</File></UpdateDatabase><ReplaceUIScript id="CityBanner"><Properties><LoadOrder>101</LoadOrder><LuaContext>CityBannerManager</LuaContext><LuaReplace>BR_CityBanner.lua</LuaReplace></Properties></ReplaceUIScript></InGameActions>]]></InGameActionData>
     <CompatibleVersions>1.2,2.0</CompatibleVersions>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
@@ -28,6 +28,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="BR_UnitPanel.lua">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="CivilopediaPages.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="ModifierStrings.sql">
