@@ -39,8 +39,8 @@ INSERT OR REPLACE INTO LocalizedText
 
 
 -- Siege
-('LOC_PROMOTION_GRAPE_SHOT_DESCRIPTION', '+7 [ICON_Bombard] Ranged Attack Strength vs. land units.[NEWLINE]+7 [ICON_Strength]Combat Strength defending vs. land units.{LOC_BR_LABEL}', 'en_US'),
-('LOC_PROMOTION_SHRAPNEL_DESCRIPTION', '+10 [ICON_Bombard] Ranged Attack Strength vs. land units.[NEWLINE]+10 [ICON_Strength]Combat Strength defending vs. land units.{LOC_BR_LABEL}', 'en_US'),
+('LOC_PROMOTION_GRAPE_SHOT_DESCRIPTION', '+7 [ICON_Bombard] Ranged Attack Strength vs. land units.[NEWLINE]+7 [ICON_Strength] Combat Strength defending vs. land units.{LOC_BR_LABEL}', 'en_US'),
+('LOC_PROMOTION_SHRAPNEL_DESCRIPTION', '+10 [ICON_Bombard] Ranged Attack Strength vs. land units.[NEWLINE]+10 [ICON_Strength] Combat Strength defending vs. land units.{LOC_BR_LABEL}', 'en_US'),
 ('LOC_PROMOTION_ADVANCED_RANGEFINDING_DESCRIPTION', '+10 [ICON_Bombard] Ranged Attack Strength vs. naval units.{LOC_BR_LABEL}', 'en_US'),
 ('LOC_PROMOTION_SHELLS_DESCRIPTION', '+7 [ICON_Bombard] Ranged Attack Strength vs. cities and encampments.{LOC_BR_LABEL}', 'en_US'),
 
@@ -59,7 +59,7 @@ INSERT OR REPLACE INTO LocalizedText
 ('LOC_PROMOTION_PREPARATORY_FIRE_DESCRIPTION', '+7 [ICON_Ranged] Ranged Attack Strength vs. land units.{LOC_BR_LABEL}', 'en_US'),
 
 -- Naval Raider
-('LOC_PROMOTION_HOMING_TORPEDOES_DESCRIPTION', '+10 [ICON_Ranged] Ranged Attack Strength vs. naval units.[NEWLINE]+7 [ICON_Strength]Combat Strength defending vs. naval units.{LOC_BR_LABEL}', 'en_US'),
+('LOC_PROMOTION_HOMING_TORPEDOES_DESCRIPTION', '+10 [ICON_Ranged] Ranged Attack Strength vs. naval units.[NEWLINE]+7 [ICON_Strength] Combat Strength defending vs. naval units.{LOC_BR_LABEL}', 'en_US'),
 
 -- Naval Carrier
 
@@ -67,8 +67,8 @@ INSERT OR REPLACE INTO LocalizedText
 -- Air Fighters
 ('LOC_PROMOTION_DOGFIGHTING_DESCRIPTION', '+7 [ICON_Strength] Combat Strength vs. Air Fighter units.{LOC_BR_LABEL}', 'en_US'),
 ('LOC_PROMOTION_INTERCEPTOR_DESCRIPTION', '+7 [ICON_Strength] Combat Strength vs. Air Bomber units.{LOC_BR_LABEL}', 'en_US'),
-('LOC_PROMOTION_COCKPIT_ARMOR_DESCRIPTION', '+7 [ICON_Ranged] Air Attack Strength vs. Anti-Aircraft units.[NEWLINE]+7 [ICON_Strength]Combat Strength vs Anti-Aircraft damage when attacking tiles they cover.{LOC_BR_LABEL}', 'en_US'),
-('LOC_PROMOTION_STRAFE_DESCRIPTION', '+17 [ICON_Ranged] Air Attack Strength vs. cities, encampments, and all land and naval units that aren''t Cavalry.[NEWLINE]+17 [ICON_Strength]Combat Strength vs Anti-Aircraft damage when attacking tiles they cover.{LOC_BR_LABEL}', 'en_US'),
+('LOC_PROMOTION_COCKPIT_ARMOR_DESCRIPTION', '+7 [ICON_Ranged] Air Attack Strength vs. Anti-Aircraft units.[NEWLINE]+7 [ICON_Strength] Combat Strength vs Anti-Aircraft damage when attacking tiles they cover.{LOC_BR_LABEL}', 'en_US'),
+('LOC_PROMOTION_STRAFE_DESCRIPTION', '+17 [ICON_Ranged] Air Attack Strength vs. cities, encampments, and all land and naval units that aren''t Cavalry.[NEWLINE]+17 [ICON_Strength] Combat Strength vs Anti-Aircraft damage when attacking tiles they cover.{LOC_BR_LABEL}', 'en_US'),
 ('LOC_PROMOTION_GROUND_CREWS_DESCRIPTION', 'Heal while deployed.{LOC_BR_LABEL}', 'en_US'),
 
 -- Air Bombers
@@ -76,6 +76,6 @@ INSERT OR REPLACE INTO LocalizedText
 ('LOC_PROMOTION_TANK_BUSTER_DESCRIPTION', '+17 [ICON_Ranged] Air Attack Strength vs. Cavalry units.{LOC_BR_LABEL}', 'en_US'),
 ('LOC_PROMOTION_TORPEDO_BOMBER_DESCRIPTION', '+17 [ICON_Ranged] Air Attack Strength vs. naval units.{LOC_BR_LABEL}', 'en_US'),
 ('LOC_PROMOTION_CLOSE_AIR_SUPPORT_DESCRIPTION', '+12 [ICON_Ranged] Air Attack Strength vs. land units.{LOC_BR_LABEL}', 'en_US'),
-('LOC_PROMOTION_EVASIVE_MANEUVERS_DESCRIPTION', '+7 [ICON_Ranged] Air Attack Strength vs. Anti-Aircraft units.[NEWLINE]+7 [ICON_Strength]Combat Strength vs Anti-Aircraft damage when attacking tiles they cover.{LOC_BR_LABEL}', 'en_US')
+('LOC_PROMOTION_EVASIVE_MANEUVERS_DESCRIPTION', '+7 [ICON_Ranged] Air Attack Strength vs. Anti-Aircraft units.[NEWLINE]+7 [ICON_Strength] Combat Strength vs Anti-Aircraft damage when attacking tiles they cover.{LOC_BR_LABEL}', 'en_US')
  
 ;
