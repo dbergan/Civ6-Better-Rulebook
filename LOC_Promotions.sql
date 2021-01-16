@@ -27,7 +27,7 @@ INSERT OR REPLACE INTO LocalizedText
 ('LOC_PROMOTION_CAPARISON_DESCRIPTION', '+5 [ICON_Strength] Combat Strength vs. Anti-Cavalry units.{LOC_BR_LABEL}', 'en_US'),
 ('LOC_PROMOTION_COURSERS_DESCRIPTION', '+5 [ICON_Strength] Combat Strength when attacking Ranged and Siege units.{LOC_BR_LABEL}', 'en_US'),
 ('LOC_PROMOTION_SPIKING_THE_GUNS_DESCRIPTION', '+7 [ICON_Strength] Combat Strength when attacking Siege units.{LOC_BR_LABEL}', 'en_US'),
-('LOC_PROMOTION_ESCORT_MOBILITY_DESCRIPTION', 'The other units in an Escort Formation units all receive this unit''s [ICON_Movement] Movement speed.{LOC_BR_LABEL}', 'en_US'),
+('LOC_PROMOTION_ESCORT_MOBILITY_DESCRIPTION', 'The other units in an Escort Formation all receive this unit''s [ICON_Movement] Movement speed.{LOC_BR_LABEL}', 'en_US'),
 
 -- Heavy Cavalry
 ('LOC_PROMOTION_CHARGE_DESCRIPTION', '+10 [ICON_Strength] Combat Strength vs. a fortified defender.{LOC_BR_LABEL}', 'en_US'),

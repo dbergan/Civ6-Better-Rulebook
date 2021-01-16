@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameData>
+	<IconDefinitions>
+		<Row Name="ICON_NOTIFICATION_USER_DEFINED_5" Atlas="ICON_ATLAS_NOTIFICATIONS" Index="12"/>
+		<Row Name="ICON_NOTIFICATION_USER_DEFINED_6" Atlas="ICON_ATLAS_NOTIFICATIONS" Index="56"/>
+		<Row Name="ICON_NOTIFICATION_USER_DEFINED_7" Atlas="ICON_ATLAS_NOTIFICATIONS" Index="59"/>
+		<Row Name="ICON_NOTIFICATION_USER_DEFINED_8" Atlas="ICON_ATLAS_NOTIFICATIONS" Index="94"/>
+		<Row Name="ICON_NOTIFICATION_USER_DEFINED_9" Atlas="ICON_ATLAS_NOTIFICATIONS" Index="94"/>
+	</IconDefinitions>
+</GameData>
+<!-- H:\SteamLibrary2\steamapps\common\Sid Meier's Civilization VI SDK Assets\Civ6\pantry\Textures\Notifications100.dds -->
