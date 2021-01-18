@@ -39,6 +39,6 @@ end
 function Initialize()
 	-- exposing function to BattleNotifications.lua
 	DB_BR.ChangeVisibility = ChangeVisibility;
-print("BattleNotifications_Gameplay.lua - init");
+print("BR_BattleNotifications_Gameplay.lua - init");
 end
 Initialize();

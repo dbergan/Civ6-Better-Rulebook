@@ -253,7 +253,7 @@ end
 
 -- Combatant = CombatResultParameters.ATTACKER, CombatResultParameters.DEFENDER, CombatResultParameters.ANTI_AIR, or CombatResultParameters.INTERCEPTOR
 function BR_CombatStrengthString(CombatResult, Combatant)
-	local a = ""
+	local a = " with "
 	a = a .. tostring(CombatResult[Combatant][CombatResultParameters.COMBAT_STRENGTH] + CombatResult[Combatant][CombatResultParameters.STRENGTH_MODIFIER])
 	if Combatant == CombatResultParameters.ATTACKER then
 		a = a .. BR_CombatIcon(CombatResult[CombatResultParameters.COMBAT_TYPE], CombatResult[CombatResultParameters.WMD_TYPE])
@@ -284,9 +284,9 @@ function BR_HealthChangeString(CombatResult, Combatant)
 		ExpectedDamage = ExpectedDmg(CombatResult[CombatResultParameters.ATTACKER][CombatResultParameters.COMBAT_STRENGTH] + CombatResult[CombatResultParameters.ATTACKER][CombatResultParameters.STRENGTH_MODIFIER], CombatResult[CombatResultParameters.DEFENDER][CombatResultParameters.COMBAT_STRENGTH] + CombatResult[CombatResultParameters.DEFENDER][CombatResultParameters.STRENGTH_MODIFIER], CombatResult[CombatResultParameters.DEFENDER][CombatResultParameters.MAX_DEFENSE_HIT_POINTS], CombatResult[CombatResultParameters.DEFENDER][CombatResultParameters.FINAL_DEFENSE_DAMAGE_TO] - CombatResult[CombatResultParameters.DEFENDER][CombatResultParameters.DEFENSE_DAMAGE_TO])
 	end
 
-	local a = ""
+	local a = "[NEWLINE]"
 	if Combatant == CombatResultParameters.ATTACKER and CombatResult[CombatResultParameters.DEFENDER_RETALIATES] == false then		-- ranged attack
-		a = a .. "0dmg (ranged attack)"
+		return ""
 	else
 		a = a .. tostring(StartHP) .. "hp - "
 		a = a .. tostring(NewDamage) .. "dmg "
@@ -358,8 +358,8 @@ end
 function BR_AttackerDetails(CombatResult)	
 	local a = "[COLOR:" .. BR_AttackerRGB .. ",255]"
 	a = a .. BR_CombatantLongName(CombatResult, CombatResultParameters.ATTACKER) .. " "
-	a = a .. BR_CombatantLocationString(CombatResult, CombatResultParameters.ATTACKER) .. "[NEWLINE]"
-	a = a .. BR_CombatStrengthString(CombatResult, CombatResultParameters.ATTACKER) .. "[NEWLINE]"
+	a = a .. BR_CombatantLocationString(CombatResult, CombatResultParameters.ATTACKER)
+	a = a .. BR_CombatStrengthString(CombatResult, CombatResultParameters.ATTACKER)
 	a = a .. BR_HealthChangeString(CombatResult, CombatResultParameters.ATTACKER)
 	a = a .. BR_XPChangeString(CombatResult, CombatResultParameters.ATTACKER)
 	a = a .. BR_AntiAirString(CombatResult)
@@ -371,8 +371,8 @@ end
 function BR_DefenderDetails(CombatResult)
 	local a = "[COLOR:" .. BR_DefenderRGB .. ",255]"
 	a = a .. BR_CombatantLongName(CombatResult, CombatResultParameters.DEFENDER) .. " "
-	a = a .. BR_CombatantLocationString(CombatResult, CombatResultParameters.DEFENDER) .. "[NEWLINE]"
-	a = a .. BR_CombatStrengthString(CombatResult, CombatResultParameters.DEFENDER) .. "[NEWLINE]"
+	a = a .. BR_CombatantLocationString(CombatResult, CombatResultParameters.DEFENDER)
+	a = a .. BR_CombatStrengthString(CombatResult, CombatResultParameters.DEFENDER)
 	a = a .. BR_HealthChangeString(CombatResult, CombatResultParameters.DEFENDER)
 	a = a .. BR_XPChangeString(CombatResult, CombatResultParameters.DEFENDER)
 	a = a .. BR_WallString(CombatResult)
@@ -460,6 +460,7 @@ function BR_Combat_WMD(CombatResult)
 		end
 	end
 
+--[[
 	-- drop pins
 	print("ICON_" .. GameInfo.Projects["PROJECT_OPERATION_IVY"].ProjectType)
 	local pPlayerCfg = PlayerConfigurations[0]
@@ -484,6 +485,7 @@ function BR_Combat_WMD(CombatResult)
 	print("mapPinEntry", mapPinEntry)
 	local mapPinCfg = GetMapPinConfig(0, pMapPin:GetID());
 	print("mapPinCfg", mapPinCfg)
+--]]
 
 --[[
 	for key, value in pairs(playerMapPins) do
@@ -587,7 +589,7 @@ function Initialize()
 	Events.Combat.Add(BR_Combat)
 	Events.NotificationAdded.Add(BR_OnNotificationAdded)
 	Events.NotificationDismissed.Add(BR_OnNotificationDismissed)
-	print("BattleNotifications.lua - init")
+	print("BR_BattleNotifications.lua - init")
 end
 
 Initialize()
