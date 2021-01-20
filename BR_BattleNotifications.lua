@@ -192,28 +192,15 @@ function BR_CombatantLongName(CombatResult, Combatant)
 		local unit = UnitManager.GetUnit(CombatResult[Combatant][CombatResultParameters.ID].player, CombatResult[Combatant][CombatResultParameters.ID].id)
 		local level = unit:GetExperience():GetLevel()
 		local milform = unit:GetMilitaryFormation()
-		local milformstring = ""
 		local unitType = unit:GetUnitType()
 		local unitInfo = GameInfo.Units[unitType]
-		if unitInfo.Domain == "DOMAIN_SEA" then
-			if milform == MilitaryFormationTypes.CORPS_FORMATION then
-				milformstring = Locale.Lookup("LOC_HUD_UNIT_PANEL_FLEET_SUFFIX")
-			elseif milform == MilitaryFormationTypes.ARMY_FORMATION then
-				milformstring = Locale.Lookup("LOC_HUD_UNIT_PANEL_ARMADA_SUFFIX")
-			end
-		else
-			if milform == MilitaryFormationTypes.CORPS_FORMATION then
-				milformstring = Locale.Lookup("LOC_HUD_UNIT_PANEL_CORPS_SUFFIX")
-			elseif milform == MilitaryFormationTypes.ARMY_FORMATION then
-				milformstring = Locale.Lookup("LOC_HUD_UNIT_PANEL_ARMY_SUFFIX")
-			end
+		if milform == MilitaryFormationTypes.CORPS_FORMATION then
+			a = a .. " [ICON_Corps]"
+		elseif milform == MilitaryFormationTypes.ARMY_FORMATION then
+			a = a .. " [ICON_Army]"
 		end
 
-		if milformstring ~= "" then
-			a = a .. " (level " .. level .. ", " .. milformstring .. ")"
-		else
-			a = a .. " (level " .. level .. ")"
-		end
+		a = a .. " (Lvl " .. level .. ")"
 	end
 	return a
 end
@@ -243,11 +230,11 @@ end
 function BR_CombatantLocationString(CombatResult, Combatant)
 	local a = ""
 	if Combatant == CombatResultParameters.ATTACKER then
-		a = a .. "attacked from "
+		a = a .. "attacked from ("
 	else
 		a = a .. "defended at "
 	end
-	a = a .. CombatResult[Combatant][CombatResultParameters.LOCATION].x .. "," .. CombatResult[Combatant][CombatResultParameters.LOCATION].y
+	a = a .. CombatResult[Combatant][CombatResultParameters.LOCATION].x .. ", " .. CombatResult[Combatant][CombatResultParameters.LOCATION].y .. ")"
 	return a
 end
 
@@ -288,12 +275,15 @@ function BR_HealthChangeString(CombatResult, Combatant)
 	if Combatant == CombatResultParameters.ATTACKER and CombatResult[CombatResultParameters.DEFENDER_RETALIATES] == false then		-- ranged attack
 		return ""
 	else
-		a = a .. tostring(StartHP) .. "hp - "
-		a = a .. tostring(NewDamage) .. "dmg "
+		a = a .. tostring(StartHP) .. "[ICON_Damaged] - "
+		a = a .. tostring(NewDamage) .. " Dmg "
 		a = a .. "(expected " .. tostring(ExpectedDamage) .. ") = "
-		a = a .. EndHP .. "hp"
+		a = a .. EndHP .. 
+		
 		if CombatResult[Combatant][CombatResultParameters.ID].type == 1 and EndHP <= 0 then
-			a = a .. "[NEWLINE]DEAD"
+			a = a .. "[ICON_UnderSiege]"
+		else
+			a = a .. "[ICON_Damaged]"
 		end
 	end
 	return a
@@ -316,7 +306,7 @@ function BR_AntiAirString(CombatResult)
 		a = a .. "[NEWLINE]Anti-Air: " .. BR_CombatStrengthString(CombatResult, CombatResultParameters.ANTI_AIR)
 		a = a .. " did "
 		a = a .. tostring(CombatResult[CombatResultParameters.ATTACKER][CombatResultParameters.DAMAGE_TO])
-		a = a .. "dmg"
+		a = a .. " Dmg"
 	end
 	return a
 end
@@ -327,7 +317,7 @@ function BR_InterceptorString(CombatResult)
 		a = a .. "[NEWLINE]Interceptor: " .. BR_CombatStrengthString(CombatResult, CombatResultParameters.INTERCEPTOR)
 		a = a .. " did "
 		a = a .. tostring(CombatResult[CombatResultParameters.ATTACKER][CombatResultParameters.DAMAGE_TO])
-		a = a .. "dmg"
+		a = a .. " Dmg"
 	end
 	return a
 end
@@ -346,10 +336,10 @@ function BR_WallString(CombatResult)
 		local ExpectedDamage = ExpectedWallDmg(CombatResult[CombatResultParameters.ATTACKER][CombatResultParameters.COMBAT_STRENGTH] + CombatResult[CombatResultParameters.ATTACKER][CombatResultParameters.STRENGTH_MODIFIER], CombatResult[CombatResultParameters.DEFENDER][CombatResultParameters.COMBAT_STRENGTH] + CombatResult[CombatResultParameters.DEFENDER][CombatResultParameters.STRENGTH_MODIFIER], CombatResult[CombatResultParameters.COMBAT_TYPE])
 
 		a = a .. "[NEWLINE]Wall: "
-		a = a .. tostring(StartHP) .. "hp - "
-		a = a .. tostring(NewDamage) .. "dmg "
+		a = a .. tostring(StartHP) .. "[ICON_Fortified] - "
+		a = a .. tostring(NewDamage) .. " Dmg "
 		a = a .. "(expected " .. tostring(ExpectedDamage) .. ") = "
-		a = a .. EndHP .. "hp"
+		a = a .. EndHP .. "[ICON_Fortified]"
 	end
 	return a
 end
@@ -436,7 +426,7 @@ function BR_Combat_WMD(CombatResult)
 		a = a .. "{LOC_" .. GetUnitType(CombatResult[CombatResultParameters.ATTACKER][CombatResultParameters.ID].player, CombatResult[CombatResultParameters.ATTACKER][CombatResultParameters.ID].id) .. "_NAME} "
 		a = a .. "(at " .. Unit:GetX() .. "," .. Unit:GetY() .. ")"
 	elseif CombatResult[CombatResultParameters.ALT_SOURCE_LOCATION].x >= 0 then
-		a = a .. "Missile Silo (at " .. CombatResult[CombatResultParameters.ALT_SOURCE_LOCATION].x .. "," .. CombatResult[CombatResultParameters.ALT_SOURCE_LOCATION].y .. ")"
+		a = a .. "Missile Silo at (" .. CombatResult[CombatResultParameters.ALT_SOURCE_LOCATION].x .. ", " .. CombatResult[CombatResultParameters.ALT_SOURCE_LOCATION].y .. ")"
 	else
 		a = a .. "???"
 	end
@@ -448,7 +438,7 @@ function BR_Combat_WMD(CombatResult)
 		a = a .. "{" .. City:GetName() .. "} "
 	end
 
-	a = a .. "(" .. CombatResult[CombatResultParameters.LOCATION].x .. "," .. CombatResult[CombatResultParameters.LOCATION].y .. ")"
+	a = a .. "(" .. CombatResult[CombatResultParameters.LOCATION].x .. ", " .. CombatResult[CombatResultParameters.LOCATION].y .. ")"
 	notificationData[ParameterTypes.SUMMARY] = a
 
 	local AllPlayers = PlayerManager.GetAliveMajors()
