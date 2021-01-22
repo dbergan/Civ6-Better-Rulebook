@@ -1,3 +1,53 @@
+local pCurPlayerVisibility = PlayersVisibility[pPlayer:GetID()];
+		if(pCurPlayerVisibility ~= nil) then
+			pCurPlayerVisibility:RevealAllPlots();
+		end
+
+
+if (PlayersVisibility[eAttackingPlayer]:IsVisible(plotX, plotY)) then
+
+
+
+local pPlayerVis:table = PlayersVisibility[ePlayer];
+
+	local minix, miniy = GetMinimapMouseCoords( inputX, inputY );
+	if (pPlayerVis ~= nil) then
+		local wx, wy = TranslateMinimapToWorld(minix, miniy);
+		local plotX, plotY = UI.GetPlotCoordFromWorld(wx, wy);
+		local pPlot = Map.GetPlot(plotX, plotY);
+		if (pPlot ~= nil) then
+			local plotID = Map.GetPlotIndex(plotX, plotY);
+			if pPlayerVis:IsRevealed
+
+
+
+
+	local localPlayerVis: table = PlayersVisibility[localPlayerID];
+
+	--Check to make sure everyone or the local player is the target
+	if(targetID ~= PlayerTypes.NONE and targetID ~= localPlayerID) then return; end
+
+	--Check to make sure local player has proper visibility to see this message
+	if(visibility == RevealedState.VISIBLE and (not localPlayerVis:IsVisible(x, y))) then return; end
+	if(visibility == RevealedState.REVEALED and (not localPlayerVis:IsRevealed(x,y))) then return; end
+
+
+
+
+	local pPlayerVis = PlayersVisibility[eLocalPlayer];
+	if pPlayerVis:IsUnitVisible(pUnit)
+
+
+
+
+
+
+
+
+
+
+
+
 local playerCfg = PlayerConfigurations[playerID];
 local playerPins = playerCfg:GetMapPins();
 

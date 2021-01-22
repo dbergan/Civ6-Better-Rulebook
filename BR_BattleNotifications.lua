@@ -8,8 +8,8 @@ BR_DefenderRadius = 1
 BR_CityCaptureRadius = 2
 BR_NuclearRadius = 1
 BR_ThermonuclearRadius = 2
-BR_AttackerRGB = "255,34,34"
-BR_DefenderRGB = "85,85,255"
+BR_AttackerRGB = "255,47,47"
+BR_DefenderRGB = "36,119,255"
 -- ---------------------------------------------
 
 -- from TutorialScenarioBase.lua
@@ -232,7 +232,7 @@ function BR_CombatantLocationString(CombatResult, Combatant)
 	if Combatant == CombatResultParameters.ATTACKER then
 		a = a .. "attacked from ("
 	else
-		a = a .. "defended at "
+		a = a .. "defended at ("
 	end
 	a = a .. CombatResult[Combatant][CombatResultParameters.LOCATION].x .. ", " .. CombatResult[Combatant][CombatResultParameters.LOCATION].y .. ")"
 	return a
@@ -278,7 +278,7 @@ function BR_HealthChangeString(CombatResult, Combatant)
 		a = a .. tostring(StartHP) .. "[ICON_Damaged] - "
 		a = a .. tostring(NewDamage) .. " Dmg "
 		a = a .. "(expected " .. tostring(ExpectedDamage) .. ") = "
-		a = a .. EndHP .. 
+		a = a .. EndHP
 		
 		if CombatResult[Combatant][CombatResultParameters.ID].type == 1 and EndHP <= 0 then
 			a = a .. "[ICON_UnderSiege]"
@@ -544,6 +544,7 @@ function BR_OnNotificationAdded(playerID, notificationID)
 	
 end
 
+--[[
 -- Remove vision when NOTIFICATION_USER_DEFINED_6, 7, 8, or 9 is dismissed
 function BR_OnNotificationDismissed(playerID, notificationID)
 	if playerID == nil or Game == nil then return end
@@ -573,12 +574,17 @@ function BR_OnNotificationDismissed(playerID, notificationID)
 		DB_BR.ChangeVisibility(playerID, x, y, BR_ThermonuclearRadius, false)
 	end
 end
+--]]
 
+function BR_OnLocalPlayerTurnEnd()
+	DB_BR.HideRevealedBattleNotificationTiles(Game.GetLocalPlayer())
+end
 
 function Initialize()
 	Events.Combat.Add(BR_Combat)
 	Events.NotificationAdded.Add(BR_OnNotificationAdded)
-	Events.NotificationDismissed.Add(BR_OnNotificationDismissed)
+	-- Events.NotificationDismissed.Add(BR_OnNotificationDismissed)
+	Events.LocalPlayerTurnEnd.Add(BR_OnLocalPlayerTurnEnd)
 	print("BR_BattleNotifications.lua - init")
 end
 

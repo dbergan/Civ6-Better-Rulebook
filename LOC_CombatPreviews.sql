@@ -27,6 +27,7 @@ INSERT OR REPLACE INTO LocalizedText
 ('LOC_COMBAT_PREVIEW_ESPIONAGE_BONUS', '{DB_POS_VALUE}Higher Diplomatic Visibility{LOC_BR_LABEL}', 'en_US'),
 ('LOC_COMBAT_PREVIEW_FORTIFIED_DEFENSE_DESC', '{DB_POS_VALUE}Fortified Unit{LOC_BR_LABEL}', 'en_US'),
 ('LOC_COMBAT_PREVIEW_LESS_EFFECTIVE_VS_WALLS_DESC', '{DB_NEG_VALUE_MINUS}Less effective vs cities and encampments{LOC_BR_LABEL}', 'en_US'), -- when archers, etc attack
+('LOC_COMBAT_PREVIEW_BONUS_VS_BARBARIANS', '{DB_POS_VALUE}{LOC_POLICY_DISCIPLINE_NAME} {LOC_POLICY_DESCRIPTOR_PREVIEW_TEXT}{LOC_BR_LABEL}', 'en_US'),
 
 -- consistent red font on negative modifiers (too minor to merit BR_LABEL)
 ('LOC_COMBAT_PREVIEW_TERRAIN_PENALTY', '{DB_NEG_VALUE}Unfavorable Terrain', 'en_US'),
