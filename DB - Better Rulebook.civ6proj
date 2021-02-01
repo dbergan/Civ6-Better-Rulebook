@@ -5,19 +5,19 @@
     <Name>DB [ICON_Reports]Better Rulebook[ICON_Reports]</Name>
     <Guid>238f9daf-7d74-429b-84b9-564ca3e79ac7</Guid>
     <ProjectGuid>d1e86b6a-fe68-4334-a726-83d29a56d3b7</ProjectGuid>
-    <ModVersion>11</ModVersion>
+    <ModVersion>13</ModVersion>
     <Teaser>How Civ6 actually plays, warts and all</Teaser>
     <Description>With Game Setup Options to patch certain items.[NEWLINE][NEWLINE]This mod updates the civilopedia and descriptions on policies, promotions, unit abilities, etc. to accurately state how the involved game mechanics work with all their glorious quirks. It also incorporates research done on, say, zones of control, embarking, air units, and the city combat system.[NEWLINE][NEWLINE]The intention is to put all the game mechanic information in the game itself so you don''t have to Google search things like war weariness.[NEWLINE][NEWLINE]Changed entries are marked with "[BR]".[NEWLINE][NEWLINE]If you have a suggestion for this mod, please show me here:[NEWLINE]https://github.com/dbergan/Civ6-Better-Rulebook</Description>
     <Authors>DB</Authors>
     <SpecialThanks>
     </SpecialThanks>
-    <AffectsSavedGames>false</AffectsSavedGames>
+    <AffectsSavedGames>true</AffectsSavedGames>
     <SupportsSinglePlayer>true</SupportsSinglePlayer>
     <SupportsMultiplayer>true</SupportsMultiplayer>
     <SupportsHotSeat>true</SupportsHotSeat>
     <AssemblyName>DB - Better Rulebook</AssemblyName>
     <RootNamespace>DB - Better Rulebook</RootNamespace>
-    <InGameActionData><![CDATA[<InGameActions><UpdateText id="LOC_BR"><Properties><LoadOrder>101</LoadOrder></Properties><File>LOC_BR.sql</File><File>LOC_BR_Civilopedia.sql</File><File>LOC_BR_CombatPreviews.sql</File><File>LOC_BR_Districts.sql</File><File>LOC_BR_Governments_Policies.sql</File><File>LOC_BR_Improvements.sql</File><File>LOC_BR_Promotions.sql</File><File>LOC_BR_Units.sql</File><File>LOC_BR_Wonders.sql</File></UpdateText><UpdateDatabase id="BR_GameData"><Properties><LoadOrder>101</LoadOrder></Properties><File>BR_CivilopediaPages.sql</File><File>BR_ModifierStrings.sql</File></UpdateDatabase><ReplaceUIScript id="BR_CityBanner"><Properties><LuaContext>CityBannerManager</LuaContext><LuaReplace>BR_CityBanner.lua</LuaReplace><LoadOrder>9</LoadOrder></Properties></ReplaceUIScript><UpdateText id="LOC_BR_UnofficialPatch"><Properties><LoadOrder>102</LoadOrder></Properties><Criteria>BR_UNOFFICIAL_PATCH</Criteria><File>UnofficialPatch/LOC_BR_UnofficialPatch.sql</File></UpdateText><UpdateDatabase id="BR_UnofficialPatchEarly"><Properties><LoadOrder>102</LoadOrder></Properties><Criteria>BR_UNOFFICIAL_PATCH</Criteria><File>UnofficialPatch/BR_UnofficialPatchEarly.sql</File></UpdateDatabase><UpdateDatabase id="BR_UnofficialPatchLate"><Properties><LoadOrder>9999999</LoadOrder></Properties><Criteria>BR_UNOFFICIAL_PATCH</Criteria><File>UnofficialPatch/BR_UnofficialPatchLate.sql</File></UpdateDatabase><UpdateDatabase id="BR_SiegeUnitsNoExtraMovement"><Properties><LoadOrder>102</LoadOrder></Properties><Criteria>BR_SIEGE_UNITS_NO_EXTRA_MOVEMENT</Criteria><File>UnofficialPatch/BR_SiegeUnitsNoExtraMovement.sql</File></UpdateDatabase><ReplaceUIScript id="BR_CivilopediaScreen"><Properties><LoadOrder>200</LoadOrder><LuaContext>CivilopediaScreen</LuaContext><LuaReplace>BR_CivilopediaScreen.lua</LuaReplace></Properties></ReplaceUIScript></InGameActions>]]></InGameActionData>
+    <InGameActionData><![CDATA[<InGameActions><UpdateText id="LOC_BR"><Properties><LoadOrder>101</LoadOrder></Properties><File>LOC_BR.sql</File><File>LOC_BR_Civilopedia.sql</File><File>LOC_BR_CombatPreviews.sql</File><File>LOC_BR_Districts.sql</File><File>LOC_BR_Governments_Policies.sql</File><File>LOC_BR_Improvements.sql</File><File>LOC_BR_Promotions.sql</File><File>LOC_BR_Units.sql</File><File>LOC_BR_Wonders.sql</File></UpdateText><UpdateDatabase id="BR_GameData"><Properties><LoadOrder>101</LoadOrder></Properties><File>BR_CivilopediaPages.sql</File><File>BR_ModifierStrings.sql</File></UpdateDatabase><ReplaceUIScript id="BR_CityBanner"><Properties><LuaContext>CityBannerManager</LuaContext><LuaReplace>BR_CityBanner.lua</LuaReplace><LoadOrder>9</LoadOrder></Properties></ReplaceUIScript><UpdateText id="LOC_BR_UnofficialPatch"><Properties><LoadOrder>102</LoadOrder></Properties><Criteria>BR_UNOFFICIAL_PATCH</Criteria><File>UnofficialPatch/LOC_BR_UnofficialPatch.sql</File></UpdateText><UpdateDatabase id="BR_UnofficialPatchEarly"><Properties><LoadOrder>102</LoadOrder></Properties><Criteria>BR_UNOFFICIAL_PATCH</Criteria><File>UnofficialPatch/BR_UnofficialPatchEarly.sql</File></UpdateDatabase><UpdateDatabase id="BR_UnofficialPatchLate"><Properties><LoadOrder>9999999</LoadOrder></Properties><Criteria>BR_UNOFFICIAL_PATCH</Criteria><File>UnofficialPatch/BR_UnofficialPatchLate.sql</File></UpdateDatabase><UpdateDatabase id="BR_SiegeUnitsNoExtraMovement"><Properties><LoadOrder>102</LoadOrder></Properties><Criteria>BR_SIEGE_UNITS_NO_EXTRA_MOVEMENT</Criteria><File>UnofficialPatch/BR_SiegeUnitsNoExtraMovement.sql</File></UpdateDatabase><ReplaceUIScript id="BR_CivilopediaScreen"><Properties><LoadOrder>200</LoadOrder><LuaContext>CivilopediaScreen</LuaContext><LuaReplace>BR_CivilopediaScreen.lua</LuaReplace></Properties></ReplaceUIScript><ReplaceUIScript id="BR_CivicsTree"><Properties><LoadOrder>101</LoadOrder><LuaContext>CivicsTree</LuaContext><LuaReplace>BR_CivicsTree.lua</LuaReplace></Properties></ReplaceUIScript><ReplaceUIScript id="BR_TechTree"><Properties><LoadOrder>101</LoadOrder><LuaContext>TechTree</LuaContext><LuaReplace>BR_TechTree.lua</LuaReplace></Properties></ReplaceUIScript></InGameActions>]]></InGameActionData>
     <CompatibleVersions>1.2,2.0</CompatibleVersions>
     <ActionCriteriaData><![CDATA[<ActionCriteria><Criteria id="BR_SIEGE_UNITS_NO_EXTRA_MOVEMENT"><ConfigurationValueMatches><ConfigurationId>BR_SIEGE_UNITS_NO_EXTRA_MOVEMENT</ConfigurationId><Group>Game</Group><Value>1</Value></ConfigurationValueMatches></Criteria><Criteria id="BR_UNOFFICIAL_PATCH"><ConfigurationValueMatches><ConfigurationId>BR_UNOFFICIAL_PATCH</ConfigurationId><Group>Game</Group><Value>1</Value></ConfigurationValueMatches></Criteria></ActionCriteria>]]></ActionCriteriaData>
     <FrontEndActionData><![CDATA[<FrontEndActions><UpdateText id="LOC_BR_GameSetup"><File>LOC_BR_GameSetup.sql</File></UpdateText><UpdateDatabase id="BR_GameSetup"><File>BR_GameSetup.sql</File></UpdateDatabase></FrontEndActions>]]></FrontEndActionData>
@@ -29,7 +29,13 @@
     <Content Include="BR_CityBanner.lua">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="BR_CivicsTree.lua">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="BR_CivilopediaScreen.lua">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BR_TechTree.lua">
       <SubType>Content</SubType>
     </Content>
     <Content Include="BR_UnitPanel.lua">
