@@ -1,3 +1,6 @@
+-- Fascism War Weariness
+UPDATE ModifierArguments SET Value = CASE WHEN Value > 0 THEN Value * -1 ELSE Value END WHERE ModifierId = 'FASCISM_WAR_WEARINESS' AND Name = 'Amount' ;
+
 -- Emplacement
 DELETE FROM RequirementSetRequirements WHERE RequirementSetId = 'EMPLACEMENT_REQUIREMENTS' AND RequirementId = 'OPPONENT_PLOT_IS_CITY_CENTER_REQUIREMENT' ;
 
