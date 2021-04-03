@@ -17,7 +17,7 @@ INSERT OR REPLACE INTO LocalizedText
 
 -- Ranged
 ('LOC_PROMOTION_VOLLEY_DESCRIPTION', '+5 [ICON_Ranged] Ranged Attack Strength vs. land units.{LOC_BR_LABEL}', 'en_US'),
-('LOC_PROMOTION_ARROW_STORM_DESCRIPTION', '+7 [ICON_Ranged] Ranged Attack Strength vs. land and naval units.{LOC_BR_LABEL}', 'en_US'),
+('LOC_PROMOTION_ARROW_STORM_DESCRIPTION', '+7 [ICON_Ranged] Ranged Attack Strength.{LOC_BR_LABEL}', 'en_US'),
 ('LOC_PROMOTION_INCENDIARIES_DESCRIPTION', '+7 [ICON_Ranged] Ranged Attack Strength vs. cities and encampments.{LOC_BR_LABEL}', 'en_US'),
 
 -- Anti-Cavalry

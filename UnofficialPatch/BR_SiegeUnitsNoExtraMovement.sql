@@ -18,3 +18,7 @@ INSERT OR REPLACE INTO RequirementSetRequirements (RequirementSetId, Requirement
 
 UPDATE Modifiers SET SubjectRequirementSetId = 'DB_REQSET_NOT_SIEGE_SETUP' WHERE Modifierid = 'LOGISTICS_FRIENDLYTERRITORYMOVEMENTBONUS' ;
 UPDATE Modifiers SET SubjectRequirementSetId = 'DB_REQSET_NOT_SIEGE_SETUP' WHERE Modifierid = 'TRAIT_EJERCITO_PATRIOTA_EXTRA_MOVEMENT' ;
+
+INSERT INTO UnitPromotionModifiers  (UnitPromotionType, ModifierId) VALUES ('PROMOTION_EXPERT_CREW', 'BR_EXPERT_CREW_MOVEMENT') ;
+INSERT INTO Modifiers (ModifierId, ModifierType) VALUES ('BR_EXPERT_CREW_MOVEMENT', 'MODIFIER_PLAYER_UNIT_ADJUST_MOVEMENT') ;
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES ('BR_EXPERT_CREW_MOVEMENT', 'Amount', 1) ;

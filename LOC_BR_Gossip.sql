@@ -1,0 +1,12 @@
+-- ('', '', 'en_US'),
+
+INSERT OR REPLACE INTO LocalizedText 
+(Tag, Text, Language) VALUES
+('LOC_GOSSIP_SOURCE_TRAIT', '', 'en_US'),
+('LOC_GOSSIP_SOURCE_SPY', '', 'en_US'),
+('LOC_GOSSIP_SOURCE_RUMOR', '', 'en_US'),
+('LOC_GOSSIP_SOURCE_TECH', '', 'en_US'),
+('LOC_GOSSIP_SOURCE_TRADER', '', 'en_US'),
+('LOC_GOSSIP_SOURCE_DELEGATE', '', 'en_US'),
+('LOC_GOSSIP_SOURCE_ALLY', '', 'en_US'),
+('LOC_GOSSIP_SOURCE_GREAT_PERSON_JOURNALISM', '', 'en_US') ;

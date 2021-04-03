@@ -10,6 +10,15 @@ INSERT OR REPLACE INTO LocalizedText
 ('DB_NEG_AMOUNT_MINUS', '[COLOR_RED]-{1_Amount}[ENDCOLOR] ', 'en_US'),
 ('DB_NEG_VALUE_MINUS', '[COLOR_RED]-{1_Value}[ENDCOLOR] ', 'en_US'),
 
+-- combat preview descriptors (why do they call it a "major defeat" when you actually take the city?)
+('LOC_HUD_UNIT_PANEL_OUTCOME_DECISIVE_VICTORY',	'', 'en_US'),	-- Miniscule Losses
+('LOC_HUD_UNIT_PANEL_OUTCOME_MAJOR_VICTORY',	'', 'en_US'),	-- Minimal Losses
+('LOC_HUD_UNIT_PANEL_OUTCOME_MINOR_VICTORY',	'', 'en_US'),	-- Minor Losses
+('LOC_HUD_UNIT_PANEL_OUTCOME_STALEMATE',		'', 'en_US'),	-- Medium Losses
+('LOC_HUD_UNIT_PANEL_OUTCOME_MINOR_DEFEAT',		'', 'en_US'),	-- Major Losses
+('LOC_HUD_UNIT_PANEL_OUTCOME_MAJOR_DEFEAT',		'', 'en_US'),	-- Massive Losses
+('LOC_HUD_UNIT_PANEL_OUTCOME_TOTAL_DEFEAT',		'', 'en_US'),	-- Massacred
+
 -- missing in base; added by BR (see ModifierStrings.sql)
 ('BR_LOC_PREVIEW_BARDING', '{DB_POS_AMOUNT}{LOC_PROMOTION_BARDING_NAME} {LOC_PROMOTION_DESCRIPTOR_PREVIEW_TEXT}{LOC_BR_LABEL}', 'en_US'),
 ('BR_LOC_PREVIEW_INTERCEPTOR', '{DB_POS_AMOUNT}{LOC_PROMOTION_INTERCEPTOR_NAME} {LOC_PROMOTION_DESCRIPTOR_PREVIEW_TEXT}{LOC_BR_LABEL}', 'en_US'),

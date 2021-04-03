@@ -8,10 +8,15 @@ INSERT OR REPLACE INTO LocalizedText
 -- Emplacement promotion
 ('LOC_PROMOTION_EMPLACEMENT_DESCRIPTION', '+10 [ICON_Strength] Combat Strength when defending vs. city/encampment attacks{LOC_UP_LABEL}', 'en_US'),
 
-
 -- Siege promotions
 ('LOC_PROMOTION_GRAPE_SHOT_DESCRIPTION', '+7 [ICON_Bombard] Ranged Attack Strength vs. land units.{LOC_UP_LABEL}', 'en_US'),
 ('LOC_PROMOTION_SHRAPNEL_DESCRIPTION', '+10 [ICON_Bombard] Ranged Attack Strength vs. land units.{LOC_UP_LABEL}', 'en_US'),
+
+-- Land Ranged promotion
+('LOC_PROMOTION_ARROW_STORM_DESCRIPTION', '+7 [ICON_Ranged] Ranged Attack Strength vs. land and naval units.{LOC_UP_LABEL}', 'en_US'),
+
+-- Water Mills didn't require farms, but now they do
+('LOC_BUILDING_WATER_MILL_DESCRIPTION', 'Bonus resources with a farm gain +1 [ICON_Food] Food each. City must be adjacent to a River.{LOC_UP_LABEL}', 'en_US'),
 
 -- Military improvements that can't be built on resources
 ('LOC_IMPROVEMENT_AIRSTRIP_DESCRIPTION', 'Airstrips are air bases that can station 3 air units. Military Engineers can construct Airstrips in friendly or neutral territory, but only on a flat featureless land tile. -1 appeal to adjacent tiles.[NEWLINE][NEWLINE]Can be built on resources.{LOC_UP_LABEL}', 'en_US'),

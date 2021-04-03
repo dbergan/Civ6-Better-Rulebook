@@ -1,12 +1,15 @@
 -- Fascism War Weariness
 UPDATE ModifierArguments SET Value = CASE WHEN Value > 0 THEN Value * -1 ELSE Value END WHERE ModifierId = 'FASCISM_WAR_WEARINESS' AND Name = 'Amount' ;
 
--- Emplacement
-DELETE FROM RequirementSetRequirements WHERE RequirementSetId = 'EMPLACEMENT_REQUIREMENTS' AND RequirementId = 'OPPONENT_PLOT_IS_CITY_CENTER_REQUIREMENT' ;
-
 -- Seige promotions: Shrapnel and Grape Shot should only apply to attacks
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('SHRAPNEL_REQUIREMENTS', 'PLAYER_IS_ATTACKER_REQUIREMENTS') ;
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('GRAPE_SHOT_REQUIREMENTS', 'PLAYER_IS_ATTACKER_REQUIREMENTS') ;
+
+-- Land ranged promotion: Arrow Storm should not work against cities/encampments
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('ARROW_STORM_REQUIREMENTS', 'OPPONENT_IS_NOT_DISTRICT') ;
+
+-- Land ranged promotion: Emplacement is bugged with this requirement (still has OPPONENT_IS_DISTRICT and PLAYER_IS_DEFENDER_REQUIREMENTS)
+DELETE FROM RequirementSetRequirements WHERE RequirementSetId = 'EMPLACEMENT_REQUIREMENTS' AND RequirementId = 'OPPONENT_PLOT_IS_CITY_CENTER_REQUIREMENT' ;
 
 -- Fix Information Age great admiral sea movement
 UPDATE ModifierArguments SET Name = 'AbilityType' WHERE ModifierId = 'GREATPERSON_MOVEMENT_AOE_INFORMATION_SEA' AND Name = 'ModifierId' ;
@@ -17,6 +20,11 @@ UPDATE ModifierStrings SET Text = '+{1_AMOUNT} {LOC_PROMOTION_BARDING_NAME} {LOC
 -- Fix Interceptor combat preview
 UPDATE ModifierStrings SET Text = '+{1_AMOUNT} {LOC_PROMOTION_INTERCEPTOR_NAME} {LOC_PROMOTION_DESCRIPTOR_PREVIEW_TEXT}{LOC_UP_LABEL}' WHERE ModifierId = 'INTERCEPTOR_BONUS_VS_BOMBERS' AND Context = 'Preview' ;
 
+-- Fix Water Mill - resources need to have a farm
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+('RESOURCE_IS_RICE', 'REQUIRES_PLOT_HAS_FARM'),
+('RESOURCE_IS_WHEAT', 'REQUIRES_PLOT_HAS_FARM'),
+('RESOURCE_IS_MAIZE', 'REQUIRES_PLOT_HAS_FARM') ;
 
 -- Fix Drone and Observation Balloon ignoring terrain costs
 INSERT OR REPLACE INTO TypeTags (Type, Tag) VALUES ('ABILITY_IGNORE_TERRAIN_COST', 'CLASS_OBSERVATION') ;

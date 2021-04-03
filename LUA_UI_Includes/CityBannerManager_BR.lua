@@ -1,8 +1,6 @@
-include("CityBannerManager");
-
--- ===========================================================================
--- Override base game
--- ===========================================================================
+-- DB - update city defense to include damaged district and terrain [BR]
+-- function copied from G:\SteamLibrary\steamapps\common\Sid Meier's Civilization VI\Base\Assets\UI\WorldView\CityBannerManager.lua
+-- CityBannerManager.lua uses a wildcard include [include("CityBannerManager_", true);] so it should automatically include this
 
 function CityBanner:UpdateStats()
 	local pDistrict:table = self:GetDistrict();
@@ -40,22 +38,24 @@ function CityBanner:UpdateStats()
 			local currentWallDamage		:number = pDistrict:GetDamage(DefenseTypes.DISTRICT_OUTER);
 			local garrisonDefense		:number = math.floor(pDistrict:GetDefenseStrength() + 0.5);
 
--- ********** BR ************** -- 
-			local damagedDistrictCS = currentDistrictDamage - 11 ;
-			if damagedDistrictCS > 0 then
-				damagedDistrictCS = math.floor(damagedDistrictCS / 20) + 1 ;
-				if damagedDistrictCS > 10 then
-					damagedDistrictCS = 10 ;
+-- DB - update city defense to include damaged district and terrain [BR]
+			if Modding.IsModActive('238f9daf-7d74-429b-84b9-564ca3e79ac7') then
+				local damagedDistrictCS = currentDistrictDamage - 11 ;
+				if damagedDistrictCS > 0 then
+					damagedDistrictCS = math.floor(damagedDistrictCS / 20) + 1 ;
+					if damagedDistrictCS > 10 then
+						damagedDistrictCS = 10 ;
+					end
+					garrisonDefense = garrisonDefense - damagedDistrictCS ;
 				end
-				garrisonDefense = garrisonDefense - damagedDistrictCS ;
-			end
 
-			local cityPlot = Map.GetPlot(self.m_PlotX, self.m_PlotY);
-			if (cityPlot ~= nil) then
-				local hillDef = cityPlot:GetDefenseModifier() ;
-				garrisonDefense = garrisonDefense + hillDef ;
+				local cityPlot = Map.GetPlot(self.m_PlotX, self.m_PlotY);
+				if (cityPlot ~= nil) then
+					local hillDef = cityPlot:GetDefenseModifier() ;
+					garrisonDefense = garrisonDefense + hillDef ;
+				end
 			end
--- ********** BR ************** -- 
+-- /DB
 
 			local garrisonDefString :string = Locale.Lookup("LOC_CITY_BANNER_GARRISON_DEFENSE_STRENGTH");
 			local defValue = garrisonDefense;
