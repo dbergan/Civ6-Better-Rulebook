@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- UnitFlagManager -->
+<!-- Author: Zur13, original file authors -->
+<!-- Zur13: Copy of original UnitFlagManager with my improvements -->
+<!-- DateCreated: 5/10/2019 1:09:36 AM -->
+<Context>
+
+
+	<Container	ID="CivilianFlags"/>
+	<Container	ID="MilitaryFlags"/>
+	<Container	ID="TradeFlags"/>
+	<Container	ID="SupportFlags"/>
+	<Container	ID="NavalFlags"/>
+	<AlphaAnim		ID="SpyMissionUpdateDelayTimer"											Begin="0"			End="1"					Speed="1" Cycle="Once" Stopped="1"/>
+	<!-- Zur13: some mod stuff -->
+	<Instance	Name="UnitFlag">
+		<!--	TODO	clamp	zoom	level	from	0.6	to	1	-->
+		<ZoomAnchor				ID="Anchor"																	ZoomOffsetNear="0,0,0"	ZoomOffsetFar="0,0,0">
+			<!--	FormationIndicators	-->
+			<Grid				ID="Formation3"				Anchor="C,C"	Size="200,68"	Offset="0,0"	Texture="UnitFormationTrio.dds"	SliceCorner="1,1"	SliceSize="98,66"	SliceTextureSize="100,68"	Hidden="1"	/>
+			<Grid				ID="Formation2"				Anchor="C,C"	Size="100,36"	Offset="0,0"	Texture="UnitFormationDuo.dds"	SliceCorner="20,17"	SliceSize="60,1"	SliceTextureSize="100,36"	Hidden="1"	/>
+
+			<AlphaAnim			ID="FlagRoot"				Anchor="C,C"	Size="64,64"					Cycle="Once"	Speed="1.5">
+
+				<Container ID="HeroGlowAnchor" Anchor="C,C" Size="64,64"/>
+
+				<!--	Religious	Unit	Indicator	-->
+				<Label			ID="ReligionPromotions"		Anchor="C,T"					Offset="0,-8"	Style="FontNormal20" Hidden="1"/>
+				<!-- CQUI compatibility -->
+				<Image			ID="ReligionIconBacking"	Anchor="C,T"	Size="25,35"	Offset="0,45"	Texture="UnitFlagReligionTag"	Hidden="1">
+					<Image		ID="ReligionIcon"			Anchor="C,B"	Size="22,22"	Offset="0,5"	IconSize="22"	Icon="ICON_RELIGION_ISLAM"/>
+				</Image>
+
+				<!--	Health	Bar	and	backing	-->
+				<Image			ID="HealthBarBG"							Size="64,64"					Hidden="1"	TextureOffset="64,0"	Texture="UnitFlagBase_Combo.dds"	>
+					<Image		ID="HealthBarBacking"		Anchor="C,C"	Size="11,32"	Offset="-25,0"	Direction="Up"	Speed="1"	Texture="UnitFlag_MeterBG.dds"	ConsumeMouse="1"	/>
+					<TextureBar	ID="HealthBar"				Anchor="C,C"	Size="11,32"	Offset="-25,0"	Direction="Up"	Speed="1"	Texture="UnitFlag_MeterFill.dds"	/>
+				</Image>
+
+				<!--	Black	Border	&	Actual	flag	-->
+				<Image			ID="FlagBase"								Size="64,64"					Texture="UnitFlagBase_Combo.dds"	/>
+				<Image			ID="FlagBaseDarken"							Size="64,64"					Texture="UnitFlagBase.dds"			TextureOffset="192,128"		Hidden="1" />
+				<!-- CQUI compatibility -->
+
+				<AlphaAnim		ID="AnimOnMouseOut"															ShowOnMouseOut="1"	AlphaStart="1"	AlphaEnd="0"	Speed="2"	Function="Root"	Cycle="Once">
+					<Image		ID="FlagMouseOut"							Size="64,64"					TextureOffset="0,64"	Texture="UnitFlagBase_Combo.dds"/>
+				</AlphaAnim>
+				<AlphaAnim		ID="AnimOnMouseOver"														ShowOnMouseOver="1"	AlphaStart="0"	AlphaEnd="1"	Speed="2"	Function="Root"	Cycle="Once">
+					<Image		ID="FlagMouseOver"							Size="64,64"					TextureOffset="0,64"	Texture="UnitFlagBase_Combo.dds"/>
+				</AlphaAnim>
+
+				<Button			ID="NormalButton"							Size="52,52"					NoDefaultSound="1"/>
+
+				<!--	Offsets	may	look	weird	but	it's	so	the	hit-area	is	aligned	with	the	art,	otherwise	it	will	
+							be	possible	to	hover	over	a	part	of	the	flag,	have	it's	animation	play	but	have	an	adjacent
+							hex	be	the	target.	-->
+				<Button			ID="HealthBarButton"						Size="42,42"	Offset="10,10"	NoDefaultSound="1"	/>
+
+				<!--	Unit	Icon	-->
+				<AlphaAnim		ID="UnitIconAnim"			Anchor="C,C"	Size="32,32"					Pause="0"	Cycle="Bounce"	Speed="1"	AlphaStart="0.95"	AlphaEnd="0.25"	Stopped="1">
+					<Image		ID="UnitIcon"				Anchor="C,C"	Size="32,32"					/>
+				</AlphaAnim>
+
+				<!--	Promotion	Indicator Zur13: MOVED down	-->
+				<Image			ID="Promotion_Flag"			Anchor="R,T"	Size="20,25"	Offset="-5,30"	Texture="UnitFlag_Promo.dds"	Hidden="1" Alpha="1.35" >
+					<!-- CQUI added Alpha="1.35"  -->
+					<AlphaAnim ID="UnitXPAnim" Cycle="Bounce" Speed="3" AlphaStart="0.3" AlphaEnd="0" Stopped="0">
+						<!-- CQUI compatibility -->
+						<Image ID="New_Promotion_Flag" Size="20,25" Texture="UnitFlag_Promo.dds" Hidden="1" Color="255,255,0,255" />
+						<!-- CQUI compatibility -->
+					</AlphaAnim>
+					<!-- CQUI compatibility -->
+					<Label		ID="UnitNumPromotions"		Anchor="C,C"					Offset="-1,0"	Style="FontFlair14"			FontStyle="stroke"	Color="0,0,0,155"/>
+					<!-- Zur13: font 12->14 + FontStyle="stroke" -->
+				</Image>
+
+				<Image ID="TribeStatusFlag" Anchor="R,C" Size="20,25" Offset="-8,0" Texture="UnitFlag_Promo.dds" Hidden="1">
+					<!-- Zur13: barbarian tribes mode compatibility -->
+					<Image ID="TribeStatusIcon" Anchor="C,C" Offset="-1,0" Size="22,22" Texture="Bribe22"/>
+				</Image>
+
+				<!--	Corps	and	Army	Indicators	Zur13: MOVED MARKERS TO THE RIGHT SIDE and down -->
+				<Container		ID="CorpsMarker"			Anchor="R,T"	Size="10,10"	Offset="1,22"	Hidden="1"	>
+					<Label									Anchor="C,C"					Offset="-1,0"	String="[ICON_Corps]"/>
+				</Container>
+				<Container		ID="ArmyMarker"				Anchor="R,T"	Size="10,10"	Offset="1,20"	Hidden="1"	>
+					<Label									Anchor="C,C"					Offset="-1,0"	String="[ICON_Army]"/>
+				</Container>
+
+				<!--                                                          -->
+				<!-- Zur13: Unit flag top bar taken from the city details bar -->
+				<!--                                                          -->
+
+				<GridButton			ID="ZUM_DetailsBar"		Anchor="C,T"	Size="auto,20"	Offset="0,45"	AnchorSide="I,I"	Texture="Banner_StatusFrame"	SliceTextureSize="24,20"	SliceCorner="9,2"	SliceSize="5,15" >
+					<Stack			ID="ZUM_DetailsStack"	Anchor="C,C"									StackGrowth="Right"	Padding="0">
+
+						<Container	ID="ZUM_PaddingPrefix"					Size="3,2"	/>
+
+						<!-- Attack stat -->
+						<Image		ID="ZUM_MeleIcon"		Anchor="L,C"	Size="18,18"	Offset="0,0"	IconSize="17"		Icon="ICON_STRENGTH"			ToolTip="LOC_HUD_UNIT_PANEL_STRENGTH"/>
+						<Image		ID="ZUM_RangedIcon"		Anchor="L,C"	Size="18,18"	Offset="0,0"	IconSize="17"		Icon="ICON_RANGED_STRENGTH"		ToolTip="LOC_HUD_UNIT_PANEL_RANGED_STRENGTH"/>
+						<Image		ID="ZUM_BombardIcon"	Anchor="L,C"	Size="18,18"	Offset="0,0"	IconSize="17"		Icon="ICON_BOMBARD"				ToolTip="LOC_HUD_UNIT_PANEL_BOMBARD_STRENGTH"/>
+						<Image		ID="ZUM_ReligionIcon"	Anchor="L,C"	Size="18,18"	Offset="0,0"	IconSize="17"		Icon="ICON_RELIGION"			ToolTip="LOC_HUD_UNIT_PANEL_RELIGIOUS_STRENGTH"/>
+
+						<Label		ID="ZUM_AttackNumber"	Anchor="L,C"									Style="FontFlair16"		FontStyle="shadow"	Color0="208,212,217,255"	Color1="0,0,0,200"	String="111"	KerningAdjustment="-1"/>
+
+						<!-- Charges -->
+						<Container	ID="ZUM_PaddingCharge"						Size="1,2"	/>
+						<Image		ID="ZUM_BuildChargeIcon"	Anchor="L,C"	Size="18,18"	Offset="0,0"	IconSize="17"		Icon="ICON_BUILD_CHARGES"		ToolTip="LOC_HUD_UNIT_PANEL_BUILDS"/>
+						<Image		ID="ZUM_ReligionChargeIcon"	Anchor="L,C"	Size="18,18"	Offset="0,0"	IconSize="17"		Icon="ICON_STATS_SPREADCHARGES"	ToolTip="LOC_HUD_UNIT_PANEL_SPREADS"/>
+						<Image		ID="ZUM_HealChargeIcon"		Anchor="L,C"	Size="18,18"	Offset="0,0"	IconSize="17"		Icon="ICON_MAP_PIN_PLUS"		ToolTip="LOC_HUD_UNIT_PANEL_HEALS"/>
+
+						<Label		ID="ZUM_ChargeNumber"	Anchor="L,C"					Offset="0,0"	Style="FontFlair16"		FontStyle="shadow"	Color0="208,212,217,255"	Color1="0,0,0,200"	String="9"	KerningAdjustment="-1"/>
+
+						<!-- Trade -->
+						<Stack		ID="ZUM_DetailsTradeStack"	Anchor="C,C"								StackGrowth="Right"		Padding="-6">
+							<Label		ID="ZUM_TradeYields1"	Anchor="L,C"				Offset="0,0"	Style="FontFlair12"		FontStyle="shadow"	Color0="208,212,217,255"	Color1="0,0,0,200"	String="[ICON_Food]"		KerningAdjustment="-5"/>
+							<Label		ID="ZUM_TradeYields2"	Anchor="L,C"				Offset="0,0"	Style="FontFlair12"		FontStyle="shadow"	Color0="208,212,217,255"	Color1="0,0,0,200"	String="[ICON_Production]"	KerningAdjustment="-5"/>
+							<Label		ID="ZUM_TradeYields3"	Anchor="L,C"				Offset="0,0"	Style="FontFlair12"		FontStyle="shadow"	Color0="208,212,217,255"	Color1="0,0,0,200"	String="[ICON_Gold]"		KerningAdjustment="-5"/>
+							<Label		ID="ZUM_TradeYields4"	Anchor="L,C"				Offset="0,0"	Style="FontFlair12"		FontStyle="shadow"	Color0="208,212,217,255"	Color1="0,0,0,200"	String="[ICON_Culture]"		KerningAdjustment="-5"/>
+							<Label		ID="ZUM_TradeYields5"	Anchor="L,C"				Offset="0,0"	Style="FontFlair12"		FontStyle="shadow"	Color0="208,212,217,255"	Color1="0,0,0,200"	String="[ICON_Faith]"		KerningAdjustment="-5"/>
+						</Stack>
+
+						<!-- Spy -->
+						<Container	ID="ZUM_PaddingPrefixSpy"				Size="3,2"	/>
+						<Label		ID="ZUM_SpyTurns"		Anchor="L,C"	Size="18,auto"	Offset="0,0"	Style="FontFlair16"		FontStyle="shadow"	Color0="208,212,217,255"	Color1="0,0,0,200"	String="12"		KerningAdjustment="-1"/>
+						<Container	ID="ZUM_PaddingSuffixSpy"				Size="3,2"	/>
+
+						<!-- Modifiers -->
+						<Container	ID="ZUM_PaddingModifier"				Size="2,2"	/>
+						<Image		ID="ZUM_ModifiersIcon"		Anchor="L,C"	Size="18,18"	Offset="0,0"	IconSize="17"		Icon="ICON_STATS_GENERIC_MODIFIER" />
+						<Image		ID="ZUM_ModifiersIconGP"	Anchor="L,C"	Size="18,18"	Offset="0,0"	IconSize="17"		Icon="ICON_MAP_PIN_SUN" />
+
+						<!-- User custom mark -->
+						<Container	ID="ZUM_PaddingCustomMark"				Size="1,2"	/>
+						<Image		ID="ZUM_CustomMarkIcon"	Anchor="L,C"	Size="18,18"	Offset="0,0"	IconSize="17"		Icon="ICON_STATS_SPREADCHARGES"			ToolTip="LOC_ZUM_CUSTOM_ICON_MARK_TT" />
+						<Label		ID="ZUM_CustomMark"		Anchor="L,C"					Offset="0,0"	Style="FontFlair14"		FontStyle="shadow"	Color0="208,212,217,255"	Color1="0,0,0,200"	String="M"	KerningAdjustment="0"	ToolTip="LOC_ZUM_CUSTOM_CHAR_MARK_TT" />
+
+						<Container	ID="ZUM_PaddingSuffix"					Size="3,2"	/>
+
+						<Container	ID="ZUM_EmptyPlaceholder"				Size="17,2"						Hidden="1"/>
+
+					</Stack>
+				</GridButton>
+
+				<!--                                                          -->
+				<!--                                                          -->
+				<!--                                                          -->
+
+			</AlphaAnim>
+
+		</ZoomAnchor>
+	</Instance>
+
+	<Instance					Name="AttentionMarkerInstance" >
+		<AlphaAnim				ID="Root"									Size="48,48"					AlphaStart="1"	AlphaEnd="0.5"	>
+			<Label				ID="Text"					Anchor="C,T"					Offset="0,-30"	Style="FontFlair40"	FontStyle="Glow"	Color0="255,0,0,255"	Color1="0,0,0,200"	String="!"	ToolTip="LOC_HUD_BARBARIAN_SPOTTED_YOUR_CITY"/>
+		</AlphaAnim>
+	</Instance>
+
+	<Instance					Name="AirUnitInstance">
+		<Container				ID="Root"					Anchor="C,T"					Offset="0,-16">
+			<Grid				ID="AirUnitCountContainer"	Anchor="L,C"	Size="auto,24"	Offset="-25,0"	Texture="Banner_UnitBacking"	SliceCorner="13,1"	SliceSize="4,22">
+				<!--	Current	and	max	air	unit	capacity	-->
+				<Stack										Anchor="R,C"					Offset="6,0"	StackGrowth="Right">
+					<Container												Size="25,1"/>
+					<Label		ID="CurrentUnitCount"														Style="FontNormal14"	String="1"/>
+					<Label																					Style="FontNormal14"	String="/"/>
+					<Label		ID="MaxUnitCount"															Style="FontNormal14"	String="4"/>
+				</Stack>
+			</Grid>
+
+			<PullDown			ID="UnitListPopup"			Anchor="C,C"	Size="200,20"	Offset="0,0"	ConsumeMouse="0"	AutoSizePopUp="0"	AutoFlip="1"	ScrollThreshold="96">
+				<ButtonData>
+					<Button		ID="AirUnitListButton"		Anchor="C,C"	Size="28,28"	Offset="-14,0"	NoStateChange="1">
+						<!--	Aerodrome	button	textures	-->
+						<Image	ID="AirUnitListButton_Base"	Anchor="C,C"	Size="28,28"					Texture="Banner_UnitButton_Combo"/>
+						<!--	Aerodrome	button	icon	-->
+						<Image	ID="AirUnitListButtonIcon"	Anchor="C,C"	Size="22,22"					Texture="Banner_Planes"/>
+						<!--	Hover	over	animations	-->
+						<AlphaAnim							Anchor="C,C"	Size="28,28"					ShowOnMouseOver="1"	AlphaStart="0"	AlphaEnd="1"	Speed="2"	Function="Root"	Cycle="Once">
+							<Image											Size="28,28"					Texture="Banner_UnitButton_Secondary"/>
+						</AlphaAnim>
+						<AlphaAnim							Anchor="C,C"	Size="28,28"					ShowOnMouseOut="1"	AlphaStart="1"	AlphaEnd="0"	Speed="2"	Function="Root"	Cycle="Once">
+							<Image											Size="28,28"					Texture="Banner_UnitButton_Secondary"/>
+						</AlphaAnim>
+					</Button>
+				</ButtonData>
+
+				<GridData									Anchor="C,B"	Size="auto,auto" Offset="0,6"	AnchorSide="I,O"	AutoSizePadding="6,5"	Texture="Controls_DropdownPanel"	SliceCorner="9,9"	SliceSize="4,4"	SliceTextureSize="22,22"/>
+
+				<ScrollPanelData							Anchor="L,T"					Offset="0,0"	Vertical="1"		AutoScrollBar="1">
+					<ScrollBar								Anchor="L,T"					Offset="1,0"	AnchorSide="O,I"	Style="ScrollVerticalBacking"	Color="28,60,90,255"	>
+						<Thumb																				Style="ScrollThumbAlt"	Color="28,60,90,255"	/>
+					</ScrollBar>
+				</ScrollPanelData>
+
+				<StackData									Anchor="L,T"	Size="240,400"	Offset="0,0"	StackGrowth="Down"	/>
+
+				<InstanceData	Name="UnitListEntry">
+					<GridButton	ID="Button"									Size="200,24"					Style="UnitPanelHeader"	Texture="Controls_ButtonControl.dds"	SliceCorner="10,10"	SliceSize="1,1"	SliceTextureSize="24,24"	StateOffsetIncrement="0,24"	TruncateWidth="180">
+						<Label	ID="UnitName"				Anchor="C,C"					Offset="0,1"	Style="UnitPanelHeader"/>
+						<Image	ID="UnitTypeIcon"			Anchor="L,C"	Size="22,22"	Offset="2,0"	/>
+					</GridButton>
+				</InstanceData>
+			</PullDown>
+		</Container>
+
+	</Instance>
+
+	<Instance					Name="HeroGlowInstance">
+		<Container				ID="Root"					Anchor="C,C"	Size="auto,auto">
+			<AlphaAnim										Anchor="C,C"	Size="auto,auto"										Cycle="Bounce" AlphaStart="0.9" AlphaEnd="0.4" Speed="3" Power="4">
+				<SpinAnim		ID="HeroGlow"				Anchor="C,C"	Size="100,100" 											Texture="UnitFlagGoldenGlow"	StretchMode="Fill" Speed="1.5"/>
+			</AlphaAnim>
+			<AlphaAnim										Anchor="C,C"	Size="auto,auto"										Cycle="Bounce" AlphaStart="0.2" AlphaEnd="0.7" Speed="5">
+				<SpinAnim		ID="HeroGlowReverse"		Anchor="C,C"	Size="100,100" 											Texture="UnitFlagGoldenGlow"	StretchMode="Fill" Speed="-0.5"/>
+			</AlphaAnim>
+		</Container>
+	</Instance>
+
+</Context>
