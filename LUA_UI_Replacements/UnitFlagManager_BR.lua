@@ -301,7 +301,7 @@ function OnUnitFlagClick( playerID : number, unitID : number )
 
 	local pUnit = pPlayer:GetUnits():FindID(unitID);
 	if (pUnit == nil ) then
-		print("Player clicked a unit flag for unit '"..tostring(unitID).."' but that unit doesn't exist.");
+		-- print("Player clicked a unit flag for unit '"..tostring(unitID).."' but that unit doesn't exist.");
 		Controls.PanelTop:ForceAnAssertDueToAboveCondition();
 		return;
 	end
@@ -2889,7 +2889,7 @@ function OnZumFlagSettingsClick( playerID : number, unitID : number )
 	local idLocalPlayer = Game.GetLocalPlayer();
 	local isClickAllowed = ExposedMembers.ZUM.GetSettingColor( playerID, "ALLOW_PANEL_CLICK" );
 	if isClickAllowed then
-		print( "ZUM flag click",  playerID, unitID );
+		--print( "ZUM flag click",  playerID, unitID );
 		--ZumUpdateTopBar( playerID, unitID ); -- Zur13
 		ExposedMembers.ZUM.OnZumSettingsOpen( playerID, unitID );
 		ZumUpdateTopBar( playerID, unitID ); -- Zur13
@@ -3140,5 +3140,5 @@ function ZumInitialize(  playerID : number, unitID : number  )
 end
 
 ZumInitialize();
-print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ ZUM UnitFlagManager @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+--print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ ZUM UnitFlagManager @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 
