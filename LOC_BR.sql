@@ -2,9 +2,25 @@
 
 INSERT OR REPLACE INTO LocalizedText 
 (Tag, Text, Language) VALUES
+
+('DB_POS_COLOR', '[COLOR_MEDIUM_GREEN]', 'en_US'),
+('DB_NEG_COLOR', '[COLOR_RED]', 'en_US'),
+('DB_POS_AMOUNT', '{DB_POS_COLOR}+{1_Amount}[ENDCOLOR] ', 'en_US'),
+('DB_POS_VALUE', '{DB_POS_COLOR}+{1_Value}[ENDCOLOR] ', 'en_US'),
+('DB_NEG_AMOUNT', '{DB_NEG_COLOR}{1_Amount}[ENDCOLOR] ', 'en_US'),
+('DB_NEG_VALUE', '{DB_NEG_COLOR}{1_Value}[ENDCOLOR] ', 'en_US'),
+('DB_NEG_AMOUNT_MINUS', '{DB_NEG_COLOR}-{1_Amount}[ENDCOLOR] ', 'en_US'),
+('DB_NEG_VALUE_MINUS', '{DB_NEG_COLOR}-{1_Value}[ENDCOLOR] ', 'en_US'),
+
+
+('LOC_EMPTY_LABEL', '', 'en_US'),
+('LOC_MOD_LABEL', ' [COLOR_RED][MOD][ENDCOLOR]', 'en_US'),
 ('LOC_BR_LABEL', ' [COLOR:SuzerainDark][BR][ENDCOLOR]', 'en_US'),
 ('LOC_BR_HEADER', '[ICON_Reports][COLOR:SuzerainDark]BETTER RULEBOOK[ENDCOLOR][ICON_Reports][NEWLINE][NEWLINE]', 'en_US'),
 ('LOC_OT_HEADER', '[COLOR_Red]ORIGINAL TEXT[ENDCOLOR][NEWLINE][NEWLINE]', 'en_US'),
+('LOC_BR_UNIT_PROMOTIONS_AND_ABILITIES_HEADER', '[NEWLINE][NEWLINE]-------------------------------Unit Promotions and Abilities{LOC_BR_LABEL}------------------------------', 'en_US'),
+
+
 
 -- TopPanel: Tourism
 ('LOC_BR_TOURISM_TOOLTIP_HEADER', '[NEWLINE]---------------------------------------------------[NEWLINE]{LOC_BR_HEADER}', 'en_US'),
@@ -27,7 +43,18 @@ INSERT OR REPLACE INTO LocalizedText
 ('LOC_WORLD_DISTRICT_DEFENSE_DAMAGE_INCREASE_FLOATER', '[COLOR_RED]{1_Num}[ENDCOLOR] Walls', 'en_US'),
 ('LOC_WORLD_DISTRICT_GARRISON_DAMAGE_DECREASE_FLOATER', '[COLOR_GREEN]+{1_Num}[ENDCOLOR] Health', 'en_US'),
 ('LOC_WORLD_DISTRICT_GARRISON_DAMAGE_INCREASE_FLOATER', '[COLOR_RED]{1_Num}[ENDCOLOR] Health', 'en_US'),
-('LOC_CITY_BANNER_FORTIFICATION_TT', 'City has no walls{LOC_BR_LABEL}', 'en_US')
+('LOC_CITY_BANNER_FORTIFICATION_TT', 'City has no walls{LOC_BR_LABEL}', 'en_US'),
+
+
+-- My new reports in Better Reports
+-- LOC_BELIEF_TYPE_
+('LOC_BR_BELIEF_HEADER_NAME', 'Beliefs{LOC_BR_LABEL}', 'en_US'),
+('LOC_BR_CHECKBOX_HIDE_AVAILABLE_BELIEFS', 'Available Beliefs', 'en_US'),
+('LOC_BR_CHECKBOX_HIDE_UNAVAILABLE_BELIEFS', 'Unavailable Beliefs', 'en_US'),
+('LOC_BR_REPORTS_TAB_BELIEFS', 'Beliefs', 'en_US')
+
 ;
+
+
 
 

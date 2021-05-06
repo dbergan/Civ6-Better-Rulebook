@@ -1076,7 +1076,9 @@ function View(data)
 			for i,ability in ipairs (unitAbilitiesList) do
 				local sDesc:string = GetUnitAbilityDescription(ability);
 				if (sDesc ~= nil and sDesc ~= "") then
-					abilityText = abilityText .. "[NEWLINE][ICON_Bullet] " .. Locale.Lookup(sDesc);
+-- DB
+					abilityText = abilityText .. "[NEWLINE][ICON_Bullet]" .. Locale.Lookup(GameInfo.UnitAbilities[ability].Name) .. ': ' .. Locale.Lookup(sDesc);
+-- /DB
 				end
 			end
 			tooltip = tooltip .. abilityText;

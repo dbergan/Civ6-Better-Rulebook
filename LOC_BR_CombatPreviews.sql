@@ -3,13 +3,6 @@
 INSERT OR REPLACE INTO LocalizedText 
 (Tag, Text, Language) VALUES
 
-('DB_POS_AMOUNT', '+{1_Amount} ', 'en_US'),
-('DB_POS_VALUE', '+{1_Value} ', 'en_US'),
-('DB_NEG_AMOUNT', '[COLOR_RED]{1_Amount}[ENDCOLOR] ', 'en_US'),
-('DB_NEG_VALUE', '[COLOR_RED]{1_Value}[ENDCOLOR] ', 'en_US'),
-('DB_NEG_AMOUNT_MINUS', '[COLOR_RED]-{1_Amount}[ENDCOLOR] ', 'en_US'),
-('DB_NEG_VALUE_MINUS', '[COLOR_RED]-{1_Value}[ENDCOLOR] ', 'en_US'),
-
 -- combat preview descriptors (why do they call it a "major defeat" when you actually take the city?)
 ('LOC_HUD_UNIT_PANEL_OUTCOME_DECISIVE_VICTORY',	'', 'en_US'),	-- Miniscule Losses
 ('LOC_HUD_UNIT_PANEL_OUTCOME_MAJOR_VICTORY',	'', 'en_US'),	-- Minimal Losses

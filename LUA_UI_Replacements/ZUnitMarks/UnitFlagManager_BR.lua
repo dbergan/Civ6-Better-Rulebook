@@ -697,6 +697,9 @@ function UnitFlag.UpdateHealth( self )
 	end
 		
 	self.m_Instance.HealthBar:SetPercent( healthPercent );
+-- DB
+	self:UpdateName()
+-- /DB
 end
 
 ------------------------------------------------------------------	 	 
@@ -808,7 +811,7 @@ function UnitFlag.UpdatePromotions( self )
                     self.m_Instance.Promotion_Flag:SetHide(false);
                 -- @ Zur13 ZUM mode promotions indicator compatibility from CQUI mode
                 elseif (#promotionList > 0) then 
--- DB
+					--[[
 					local tooltipString :string = "";
 					for i, promotion in ipairs(promotionList) do
 						tooltipString = tooltipString .. Locale.Lookup(GameInfo.UnitPromotions[promotion].Name);
@@ -816,10 +819,8 @@ function UnitFlag.UpdatePromotions( self )
 							tooltipString = tooltipString .. "[NEWLINE]";
 						end
 					end
-					if tooltipString ~= '' then
-						self.m_Instance.Promotion_Flag:SetToolTipString(tooltipString .. Locale.Lookup("LOC_BR_LABEL"));
-					end
--- /DB
+					self.m_Instance.Promotion_Flag:SetToolTipString(tooltipString);
+					--]]
 					self.m_Instance.UnitNumPromotions:SetText(#promotionList);
 					self.m_Instance.Promotion_Flag:SetHide(false);
 				end
@@ -865,10 +866,52 @@ function UnitFlag.UpdateName( self )
 		end
 
 -- DB
+		local DamageString = ''
 		if pUnit:GetDamage() > 0 then
 			local health = pUnit:GetMaxDamage() - pUnit:GetDamage()
-			nameString = nameString .. " " .. health .. "[ICON_Damaged] " .. Locale.Lookup("LOC_BR_LABEL")
+			DamageString = health .. '[ICON_Damaged]'
 		end
+
+		local XPString = ''
+		if pUnit:GetExperience() ~= nil and pUnit:GetExperience():GetExperiencePoints() ~= nil and pUnit:GetExperience():GetExperiencePoints() > 0 then
+			XPString = pUnit:GetExperience():GetExperiencePoints() .. 'xp'
+		end
+
+		local AbilityString = '' 
+		local PromotionList = pUnit:GetExperience():GetPromotions()
+		for _, Promotion in ipairs(PromotionList) do
+-- print('', pUnit:GetName(), Promotion, GameInfo.UnitPromotions[Promotion], GameInfo.UnitPromotions[Promotion].Index, GameInfo.UnitPromotions[Promotion].Name, GameInfo.UnitPromotions[Promotion].Description)
+			if Promotion ~= nil and GameInfo.UnitPromotions[Promotion] ~= nil and GameInfo.UnitPromotions[Promotion].Name ~= nil and GameInfo.UnitPromotions[Promotion].Description ~= nil and Locale.Lookup(GameInfo.UnitPromotions[Promotion].Name) ~= nil and Locale.Lookup(GameInfo.UnitPromotions[Promotion].Description) ~= nil then
+				AbilityString = AbilityString .. '[NEWLINE][ICON_Bullet]' .. Locale.Lookup(GameInfo.UnitPromotions[Promotion].Name) .. ': ' .. Locale.Lookup(GameInfo.UnitPromotions[Promotion].Description)
+			else
+				print('Promotion error', pUnit:GetName(), Promotion, GameInfo.UnitPromotions[Promotion], GameInfo.UnitPromotions[Promotion].Index, GameInfo.UnitPromotions[Promotion].Name, GameInfo.UnitPromotions[Promotion].Description)
+			end
+		end
+
+		local AbilityList = pUnit:GetAbility():GetAbilities()
+		for _, Ability in ipairs(AbilityList) do
+-- print('', pUnit:GetName(), Ability, GameInfo.UnitAbilities[Ability], GameInfo.UnitAbilities[Ability].Index, GameInfo.UnitAbilities[Ability].Name, GameInfo.UnitAbilities[Ability].Description)
+			if Ability ~= nil and GameInfo.UnitAbilities[Ability] ~= nil and GameInfo.UnitAbilities[Ability].Name ~= nil and GameInfo.UnitAbilities[Ability].Description ~= nil and Locale.Lookup(GameInfo.UnitAbilities[Ability].Name) ~= nil and Locale.Lookup(GameInfo.UnitAbilities[Ability].Description) ~= nil then
+				AbilityString = AbilityString .. '[NEWLINE][ICON_Bullet]' .. Locale.Lookup(GameInfo.UnitAbilities[Ability].Name) .. ': ' .. Locale.Lookup(GameInfo.UnitAbilities[Ability].Description)
+			else
+				print('Ability error', pUnit:GetName(), Ability, GameInfo.UnitAbilities[Ability], GameInfo.UnitAbilities[Ability].Index, GameInfo.UnitAbilities[Ability].Name, GameInfo.UnitAbilities[Ability].Description)
+			end
+		end
+
+
+		if DamageString ~= '' and XPString ~= '' then
+			nameString = nameString .. '[NEWLINE]' .. DamageString .. ' // ' .. XPString .. Locale.Lookup("LOC_BR_LABEL")
+		elseif DamageString ~= '' then
+			nameString = nameString .. '[NEWLINE]' .. DamageString .. ' ' .. Locale.Lookup("LOC_BR_LABEL")
+		elseif XPString ~= '' then
+			nameString = nameString .. '[NEWLINE]' .. XPString .. ' ' .. Locale.Lookup("LOC_BR_LABEL")
+		end
+
+		if AbilityString ~= '' then
+			AbilityString = Locale.Lookup('{LOC_BR_UNIT_PROMOTIONS_AND_ABILITIES_HEADER}') .. AbilityString
+		end
+
+		nameString = nameString .. AbilityString
 -- /DB
 	
 		local pUnitDef = GameInfo.Units[pUnit:GetUnitType()];
@@ -2889,7 +2932,7 @@ function OnZumFlagSettingsClick( playerID : number, unitID : number )
 	local idLocalPlayer = Game.GetLocalPlayer();
 	local isClickAllowed = ExposedMembers.ZUM.GetSettingColor( playerID, "ALLOW_PANEL_CLICK" );
 	if isClickAllowed then
-		--print( "ZUM flag click",  playerID, unitID );
+		-- print( "ZUM flag click",  playerID, unitID );
 		--ZumUpdateTopBar( playerID, unitID ); -- Zur13
 		ExposedMembers.ZUM.OnZumSettingsOpen( playerID, unitID );
 		ZumUpdateTopBar( playerID, unitID ); -- Zur13
@@ -3140,5 +3183,4 @@ function ZumInitialize(  playerID : number, unitID : number  )
 end
 
 ZumInitialize();
---print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ ZUM UnitFlagManager @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-
+-- print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ ZUM UnitFlagManager @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");

@@ -21,10 +21,8 @@ UPDATE ModifierStrings SET Text = '+{1_AMOUNT} {LOC_PROMOTION_BARDING_NAME} {LOC
 UPDATE ModifierStrings SET Text = '+{1_AMOUNT} {LOC_PROMOTION_INTERCEPTOR_NAME} {LOC_PROMOTION_DESCRIPTOR_PREVIEW_TEXT}{LOC_UP_LABEL}' WHERE ModifierId = 'INTERCEPTOR_BONUS_VS_BOMBERS' AND Context = 'Preview' ;
 
 -- Fix Water Mill - resources need to have a farm
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
-('RESOURCE_IS_RICE', 'REQUIRES_PLOT_HAS_FARM'),
-('RESOURCE_IS_WHEAT', 'REQUIRES_PLOT_HAS_FARM'),
-('RESOURCE_IS_MAIZE', 'REQUIRES_PLOT_HAS_FARM') ;
+INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId, RequirementId) 
+SELECT REPLACE(ResourceType, 'RESOURCE', 'RESOURCE_IS'), 'REQUIRES_PLOT_HAS_FARM'  FROM Improvement_ValidResources WHERE ImprovementType = 'IMPROVEMENT_FARM' ;
 
 -- Fix Drone and Observation Balloon ignoring terrain costs
 INSERT OR REPLACE INTO TypeTags (Type, Tag) VALUES ('ABILITY_IGNORE_TERRAIN_COST', 'CLASS_OBSERVATION') ;

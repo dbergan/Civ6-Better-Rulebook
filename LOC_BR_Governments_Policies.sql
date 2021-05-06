@@ -18,6 +18,10 @@ INSERT OR REPLACE INTO LocalizedText
 
 -- POLICIES
 
+-- After Action Reports (text says 25%, but it's actually 50%)
+('LOC_POLICY_AFTER_ACTION_REPORTS_DESCRIPTION', 'All units gain +50% combat experience.{LOC_BR_LABEL}', 'en_US'),
+
+
 -- Bastions (combat preview was missing)
 ('LOC_POLICY_BASTIONS_DESCRIPTION', '+6 City [ICON_Strength] Defense Strength. +10 City [ICON_Ranged] Ranged Strength. (5 of it is added directly to the city''s "Base Strength" number, with no mention. The other 5 shows up as a standard modifier. With{LOC_BR_LABEL} both are explained in the Combat Preview.).{LOC_BR_LABEL}', 'en_US'),
 
